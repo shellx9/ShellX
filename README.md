@@ -1,4 +1,4 @@
-![mahua](//img//11111.png)
+![mahua](favicon.png)
 
 ##远程桌面批量管理器      Remote Desktop Manager
 是基于C# 的一款工具
@@ -20,6 +20,14 @@
 * ![mahua](my_wx.png)
 
 
+
+
+
+
 ##软件运行效果截图
-
-
+* ![mahua](a1.png)
+* ![mahua](a1_1.png)
+* ![mahua](a2.png)
+* ![mahua](a3.png)
+* ![mahua](a4.png)
+* ![mahua](a5.png)
