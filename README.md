@@ -17,6 +17,9 @@
 * QQ交流群：[660480885](https://qm.qq.com/cgi-bin/qm/qr?k=zI7Up93uxrbtzDRqwIIERFtWdOTpoZHw&amp;jump_from=webapi)
 * Telegram频道: t.me/shellx9
 * 微信群：请加微信邀请
+* ![mahua](my_wx.png)
 
 
 ##软件运行效果截图
+
+
