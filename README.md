@@ -1,4 +1,4 @@
-![mahua](//img//11111.png)
+![mahua](..//img//11111.png)
 
 ##远程桌面批量管理器      Remote Desktop Manager
 是基于C# 的一款工具
