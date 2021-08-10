@@ -17,6 +17,7 @@
 * 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流 沟通
 * （程序写的不好请多多包涵--我会持续更新这个软件）
 * 官网：[http://shell-x.com/](http://shell-x.com/)
+* 程序下载：[http://shell-x.com/download/ShellX_x86.rar](http://shell-x.com/download/ShellX_x86.rar)
 * QQ：[879301117](http://wpa.qq.com/msgrd?v=3&uin=879301117&site=qq&menu=yes)
 * 微信：Internetquant
 * Telegram：[@xixilong](http://twitter.com/xixilong)
