@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{56504CC1-3F4E-4FBD-8267-1BA305118B07}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>rdp</RootNamespace>
+    <AssemblyName>ShellX</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BetterListViewExpress">
+      <HintPath>.\BetterListViewExpress.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>.\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Info.cs" />
+    <Compile Include="ini_growing_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ini_growing_add.Designer.cs">
+      <DependentUpon>ini_growing_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ini_list_update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ini_list_update.Designer.cs">
+      <DependentUpon>ini_list_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Json.cs" />
+    <Compile Include="LangResx\Common.Designer.cs" />
+    <Compile Include="LangResx\Common.en.Designer.cs" />
+    <Compile Include="LangUtil.cs" />
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Msg.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="CommonSettings.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="host.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="host.Designer.cs">
+      <DependentUpon>host.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ini.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ini.Designer.cs">
+      <DependentUpon>ini.cs</DependentUpon>
+    </Compile>
+    <Compile Include="link.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="link.Designer.cs">
+      <DependentUpon>link.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PingHelp.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SQLHelper.cs" />
+    <EmbeddedResource Include="About.en.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About.zh-Hans.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="About.zh-Hant.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.en.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.zh-Hans.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="host.en.resx">
+      <DependentUpon>host.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="host.resx">
+      <DependentUpon>host.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="host.zh-Hans.resx">
+      <DependentUpon>host.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ini.en.resx">
+      <DependentUpon>ini.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ini.resx">
+      <DependentUpon>ini.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ini.zh-Hans.resx">
+      <DependentUpon>ini.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ini_growing_add.resx">
+      <DependentUpon>ini_growing_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ini_growing_add.zh-Hans.resx">
+      <DependentUpon>ini_growing_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ini_list_update.en.resx">
+      <DependentUpon>ini_list_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ini_list_update.resx">
+      <DependentUpon>ini_list_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ini_list_update.zh-Hans.resx">
+      <DependentUpon>ini_list_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LangResx\Common.en.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LangResx\Common.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="link.resx">
+      <DependentUpon>link.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.en.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.zh-Hans.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.zh-Hant.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="img\b2.png" />
+    <None Include="img\e3.png" />
+    <None Include="img\e2.png" />
+    <None Include="img\e1.png" />
+    <None Include="img\d1.png" />
+    <None Include="img\c4.png" />
+    <None Include="img\c3.png" />
+    <None Include="img\c2.png" />
+    <None Include="img\c1.png" />
+    <None Include="img\b3.png" />
+    <None Include="img\b1.png" />
+    <None Include="img\a2.png" />
+    <None Include="img\a1.png" />
+    <None Include="img\longin.png" />
+    <None Include="img\favoritesalt.ico" />
+    <None Include="img\file_close.ico" />
+    <None Include="img\Download_File.ico" />
+    <None Include="img\Upload_files.ico" />
+    <None Include="img\windows.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AxMSTSCLib">
+      <Guid>{8C11EFA1-92C3-11D1-BC1E-00C04FA31489}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="MSTSCLib">
+      <Guid>{8C11EFA1-92C3-11D1-BC1E-00C04FA31489}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\tsbAddData.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\tsbConnect.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\tsbDel.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\tsbEdit.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\tsMenuNotifyShow.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <None Include="img\CN.ico" />
+    <None Include="img\US.ico" />
+    <None Include="img\11111.png" />
+    <None Include="img\shell32_14.ico" />
+    <None Include="img\tsbAbout.Image.png" />
+    <None Include="img\shell32_22.ico" />
+    <None Include="img\favicon.ico" />
+    <None Include="img\d1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

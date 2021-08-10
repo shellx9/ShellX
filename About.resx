@@ -1,0 +1,616 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&gt;&gt;dev_qq.Name" xml:space="preserve">
+    <value>dev_qq</value>
+  </data>
+  <data name="github_data.Text" xml:space="preserve">
+    <value>https://github.com/shellx9/ShellX</value>
+  </data>
+  <data name="&gt;&gt;Telegram_pd_data.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAA
+        AAD/////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////42JH/9MRa//TEWv/0xFr/9MRa//TEWv/0xFr/9MRa//TEWv/0xFr/9MRa//TE
+        Wv/0xFr/9MRa//vryP/I8P//WtH//1rR//9a0f//WtH//1rR//9a0f//WtH//1rR//9a0f//WtH//1rR
+        //9a0f//WtH//6bm//////////////TCVv/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++k
+        AP/vpAD/76QA/++kAP/vpAD/+eCq/6rn//8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5
+        //8Auf//ALn//wC5//8Auf//ddn/////////////9MJW/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++k
+        AP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/54Kr/quf//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5
+        //8Auf//ALn//wC5//8Auf//ALn//wC5//912f/////////////0wlb/76QA/++kAP/vpAD/76QA/++k
+        AP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA//ngqv+q5///ALn//wC5//8Auf//ALn//wC5
+        //8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//3XZ//////////////TCVv/vpAD/76QA/++k
+        AP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/+eCq/6rn//8Auf//ALn//wC5
+        //8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ddn/////////////9MJW/++k
+        AP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/54Kr/quf//wC5
+        //8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5//912f//////////
+        ///0wlb/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA//ng
+        qv+q5///ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//3XZ
+        //////////////TCVv/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++k
+        AP/vpAD/+eCq/6rn//8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5
+        //8Auf//ddn/////////////9MJW/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++k
+        AP/vpAD/76QA/++kAP/54Kr/quf//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5
+        //8Auf//ALn//wC5//912f/////////////0wlb/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++k
+        AP/vpAD/76QA/++kAP/vpAD/76QA//ngqv+q5///ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5
+        //8Auf//ALn//wC5//8Auf//ALn//3XZ//////////////TCVv/vpAD/76QA/++kAP/vpAD/76QA/++k
+        AP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/+eCq/6rn//8Auf//ALn//wC5//8Auf//ALn//wC5
+        //8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ddn/////////////9MJW/++kAP/vpAD/76QA/++k
+        AP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/54Kr/quf//wC5//8Auf//ALn//wC5
+        //8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5//912f/////////////0wlb/76QA/++k
+        AP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA//ngqv+q5///ALn//wC5
+        //8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//3XZ//////////////TC
+        Vv/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/76QA/++kAP/vpAD/+eCq/6rn
+        //8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ALn//wC5//8Auf//ddn/////
+        ////////+ue+//jcnP/43Jz/+Nyc//jcnP/43Jz/+Nyc//jcnP/43Jz/+Nyc//jcnP/43Jz/+Nyc//jc
+        nP/8897/3vb//5zk//+c5P//nOT//5zk//+c5P//nOT//5zk//+c5P//nOT//5zk//+c5P//nOT//5zk
+        ///K8P/////////////Y4Pz/xdH7/8XR+//F0fv/xdH7/8XR+//F0fv/xdH7/8XR+//F0fv/xdH7/8XR
+        +//F0fv/xdH7/+vv/f/o+fP/vOzd/7zs3f+87N3/vOzd/7zs3f+87N3/vOzd/7zs3f+87N3/vOzd/7zs
+        3f+87N3/vOzd/9r17P///////////2yL9v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ
+        8v8iUPL/IlDy/yJQ8v8iUPL/tcX6/6ro1P8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6
+        f/8Aun//ALp//wC6f/8Aun//ddm5////////////bIv2/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ
+        8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v+1xfr/qujU/wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6
+        f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/912bn///////////9si/b/IlDy/yJQ8v8iUPL/IlDy/yJQ
+        8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/7XF+v+q6NT/ALp//wC6f/8Aun//ALp//wC6
+        f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//3XZuf///////////2yL9v8iUPL/IlDy/yJQ
+        8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/tcX6/6ro1P8Aun//ALp//wC6
+        f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ddm5////////////bIv2/yJQ
+        8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v+1xfr/qujU/wC6
+        f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/912bn/////////
+        //9si/b/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/7XF
+        +v+q6NT/ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//3XZ
+        uf///////////2yL9v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ
+        8v8iUPL/tcX6/6ro1P8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6
+        f/8Aun//ddm5////////////bIv2/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ
+        8v8iUPL/IlDy/yJQ8v+1xfr/qujU/wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6
+        f/8Aun//ALp//wC6f/912bn///////////9si/b/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ
+        8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/7XF+v+q6NT/ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6
+        f/8Aun//ALp//wC6f/8Aun//ALp//3XZuf///////////2yL9v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ
+        8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/tcX6/6ro1P8Aun//ALp//wC6f/8Aun//ALp//wC6
+        f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ddm5////////////bIv2/yJQ8v8iUPL/IlDy/yJQ
+        8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v+1xfr/qujU/wC6f/8Aun//ALp//wC6
+        f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/912bn///////////9si/b/IlDy/yJQ
+        8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/7XF+v+q6NT/ALp//wC6
+        f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//3XZuf///////////2yL
+        9v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/IlDy/yJQ8v8iUPL/tcX6/6ro
+        1P8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ALp//wC6f/8Aun//ddm5////
+        ////////fJf3/zli8/85YvP/OWLz/zli8/85YvP/OWLz/zli8/85YvP/OWLz/zli8/85YvP/OWLz/zli
+        8/+9y/v/s+rZ/xvBjP8bwYz/G8GM/xvBjP8bwYz/G8GM/xvBjP8bwYz/G8GM/xvBjP8bwYz/G8GM/xvB
+        jP+E3cH/////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</value>
+  </data>
+  <data name="Website_data.Text" xml:space="preserve">
+    <value>http://shell-X.com</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Website_data.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Website.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="github_data.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 12</value>
+  </data>
+  <data name="&gt;&gt;qq_qun_data.Name" xml:space="preserve">
+    <value>qq_qun_data</value>
+  </data>
+  <data name="&gt;&gt;Website.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Website_data.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="Telegram_pd.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 173</value>
+  </data>
+  <data name="&gt;&gt;Website_data.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;qq_qun_data.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Website_data.Location" type="System.Drawing.Point, System.Drawing">
+    <value>277, 74</value>
+  </data>
+  <data name="&gt;&gt;qq_qun.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="qq_qun_data.Location" type="System.Drawing.Point, System.Drawing">
+    <value>279, 149</value>
+  </data>
+  <data name="&gt;&gt;Website_data.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="explanation.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 12</value>
+  </data>
+  <data name="Telegram_pd_data.Location" type="System.Drawing.Point, System.Drawing">
+    <value>302, 173</value>
+  </data>
+  <data name="Telegram.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 12</value>
+  </data>
+  <data name="Telegram_pd.Text" xml:space="preserve">
+    <value>Telegram频道:  </value>
+  </data>
+  <data name="Telegram.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="explanation.Text" xml:space="preserve">
+    <value>远程桌面管理工具  V1.0</value>
+  </data>
+  <data name="&gt;&gt;github_data.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Telegram_pd.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="dev_qq_data.Text" xml:space="preserve">
+    <value>879301117</value>
+  </data>
+  <data name="&gt;&gt;github.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="dev_qq.Text" xml:space="preserve">
+    <value>开发者QQ:</value>
+  </data>
+  <data name="&gt;&gt;Website_data.Name" xml:space="preserve">
+    <value>Website_data</value>
+  </data>
+  <data name="&gt;&gt;github.Name" xml:space="preserve">
+    <value>github</value>
+  </data>
+  <data name="github.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Telegram_pd.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Website.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Telegram.Text" xml:space="preserve">
+    <value>Telegram:  xixilong</value>
+  </data>
+  <data name="&gt;&gt;dev_qq.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="explanation.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="Telegram.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 124</value>
+  </data>
+  <data name="qq_qun.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 12</value>
+  </data>
+  <data name="&gt;&gt;github_data.Name" xml:space="preserve">
+    <value>github_data</value>
+  </data>
+  <data name="github.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;dev_qq.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="explanation.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 23</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dev_qq_data.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Telegram_pd.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;qq_qun.Name" xml:space="preserve">
+    <value>qq_qun</value>
+  </data>
+  <data name="qq_qun_data.Text" xml:space="preserve">
+    <value>660480885</value>
+  </data>
+  <data name="&gt;&gt;Telegram.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;Telegram.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;explanation.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;Website.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;Telegram.Name" xml:space="preserve">
+    <value>Telegram</value>
+  </data>
+  <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 22</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="dev_qq.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>203, 12</value>
+  </data>
+  <data name="github.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 196</value>
+  </data>
+  <data name="Website.Text" xml:space="preserve">
+    <value>官网:</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="dev_qq.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 100</value>
+  </data>
+  <data name="Telegram_pd.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 12</value>
+  </data>
+  <data name="&gt;&gt;dev_qq_data.Name" xml:space="preserve">
+    <value>dev_qq_data</value>
+  </data>
+  <data name="Website.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 12</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Copyright © 2020-2021 shell-X.com</value>
+  </data>
+  <data name="&gt;&gt;Website_data.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="dev_qq.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 12</value>
+  </data>
+  <data name="Website.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="Telegram_pd_data.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;qq_qun.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="github.Text" xml:space="preserve">
+    <value>github:</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="&gt;&gt;dev_qq.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;qq_qun_data.Type" xml:space="preserve">
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="qq_qun_data.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 12</value>
+  </data>
+  <data name="&gt;&gt;Telegram_pd.Name" xml:space="preserve">
+    <value>Telegram_pd</value>
+  </data>
+  <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>184, 184</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 12</value>
+  </data>
+  <data name="&gt;&gt;Telegram_pd.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAALYAAAC0CAYAAAA5ONYPAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAABDRJREFUeF7t2c1pVVEYheHUYgnWIWIRVmADGWgFjixAC4gzdeJMnfgDChEUlAgS
+        YhA1/nvdKpxZ7p2cy2Lh4VnwNPDxsid75/j4eMDS7AyzBU7YtsgJ2xY5YdsiJ2xb5DaG/ev5o/H5ykW2
+        sHr3drrm6X34ejBuPDzHTPdfX50uuX4bw/754M74eOEMW1i9eTld8/SOTvbH7u0dZtp7dnG65PoJO0jY
+        OcIuEnaOsIuEnSPsImHnCLtI2DnCLhJ2jrCLhJ0j7CJh5wi7SNg5wi4Sdo6wi4SdI+wiYecIu0jYOcIu
+        EnaOsIuEnSPsImHnCLtI2DnCLhJ2jrCLhJ0j7CJh5wi7SNg5wi4Sdo6wi4SdI+wiYecIu0jYOcIuEnaO
+        sIuEnSPsImHnCLtI2DnCLhJ2jrCLhJ0j7CJh5wi7SNg5wi4Sdo6wi4SdI+wiYecIu0jYOcIuEnaOsIuE
+        nSPsImHnCLtI2DnCLhJ2jrCLhJ0j7CJh5wi7SNg5wi4Sdo6wi4SdI+wiYecIu0jYOcIuEnaOsIuEnSPs
+        ImHnCLtI2DnCLhJ2jrCLhJ0j7CJh5wi7SNg5wi4Sdo6wi4SdI+wiYecIu0jYOcIuEnaOsIuEnSPsImHn
+        CLtI2DnCLhJ2jrCLhJ0j7CJh5wi7SNg5wi4Sdo6wi4SdI+wiYecIu0jYOcIuEnaOsIuEnSPsImHnCLtI
+        2DnCLhJ2zvywnz4YJ5fOs4XV4cF0zdN7/+XVuHbvLDPdfXl5uuT6bQzb7H+esG2RE7YtcsK2RU7YtsgJ
+        2xY5YdsitzHs/Q+/xu6Tr2zh6NtquuaafT8a48Uucx3uTYdcv41h7x38GDvX37OFf4/Dxp3sj3Hr7/mZ
+        5+nMn0dhb0/YQcLuEXaQsHuEHSTsHmEHCbtH2EHC7hF2kLB7hB0k7B5hBwm7R9hBwu4RdpCwe4QdJOwe
+        YQcJu0fYQcLuEXaQsHuEHSTsHmEHCbtH2EHC7hF2kLB7hB0k7B5hBwm7R9hBwu4RdpCwe4QdJOweYQcJ
+        u0fYQcLuEXaQsHuEHSTsHmEHCbtH2EHC7hF2kLB7hB0k7B5hBwm7R9hBwu4RdpCwe4QdJOweYQcJu0fY
+        QcLuEXaQsHuEHSTsHmEHCbtH2EHC7hF2kLB7hB0k7B5hBwm7R9hBwu4RdpCwe4QdJOweYQcJu0fYQcLu
+        EXaQsHuEHSTsHmEHCbtH2EHC7hF2kLB7hB0k7B5hBwm7R9hBwu4RdpCwe4QdJOweYQcJu0fYQcLuEXaQ
+        sHuEHSTsHmEHCbtH2EHC7hF2kLB7hB0k7B5hBwm7R9hBwu4RdpCwe4QdJOweYQcJu0fYQcLuEXaQsHuE
+        HSTsHmEHCbtH2EHC7hF20Nyw335ZjZt/42a+Tz9+T9dcs5+fxji8yVwfH0+HXL+NYZv9zxO2LXLCtkVO
+        2LbICdsWuDH+ALXpDYffFLm/AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="github_data.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;github.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;explanation.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;explanation.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Telegram_pd_data.Name" xml:space="preserve">
+    <value>Telegram_pd_data</value>
+  </data>
+  <data name="&gt;&gt;github.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;explanation.Name" xml:space="preserve">
+    <value>explanation</value>
+  </data>
+  <data name="&gt;&gt;qq_qun_data.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="Website.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 74</value>
+  </data>
+  <data name="qq_qun.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Name" xml:space="preserve">
+    <value>pictureBox1</value>
+  </data>
+  <data name="Telegram_pd_data.Text" xml:space="preserve">
+    <value>t.me/shellx9</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="qq_qun.Text" xml:space="preserve">
+    <value>QQ交流群:</value>
+  </data>
+  <data name="qq_qun_data.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="qq_qun.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 150</value>
+  </data>
+  <data name="github.Size" type="System.Drawing.Size, System.Drawing">
+    <value>47, 12</value>
+  </data>
+  <data name="&gt;&gt;dev_qq_data.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;Telegram.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="qq_qun.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Telegram_pd_data.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dev_qq.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;github_data.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="dev_qq_data.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;Website.Name" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="Telegram_pd_data.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 12</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>215, 49</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="Website_data.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 12</value>
+  </data>
+  <data name="explanation.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="github_data.Location" type="System.Drawing.Point, System.Drawing">
+    <value>268, 196</value>
+  </data>
+  <data name="Telegram.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Telegram_pd.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="dev_qq_data.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;dev_qq_data.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>490, 230</value>
+  </data>
+  <data name="&gt;&gt;Telegram_pd_data.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="dev_qq_data.Size" type="System.Drawing.Size, System.Drawing">
+    <value>59, 12</value>
+  </data>
+  <data name="&gt;&gt;qq_qun.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;Telegram_pd_data.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;github_data.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="qq_qun_data.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="dev_qq_data.Location" type="System.Drawing.Point, System.Drawing">
+    <value>277, 100</value>
+  </data>
+  <data name="github_data.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;pictureBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>
