@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="bj" xml:space="preserve">
+    <value>sign</value>
+  </data>
+  <data name="bj_display" xml:space="preserve">
+    <value>show marks</value>
+  </data>
+  <data name="bj_no_display" xml:space="preserve">
+    <value>Do not display tags</value>
+  </data>
+  <data name="form1_tsItemLabel_bar" xml:space="preserve">
+    <value>bar</value>
+  </data>
+  <data name="form1_tsItemLabel_together" xml:space="preserve">
+    <value>together</value>
+  </data>
+  <data name="fz_count" xml:space="preserve">
+    <value>Number of groups</value>
+  </data>
+  <data name="fz_display" xml:space="preserve">
+    <value>Display grouping</value>
+  </data>
+  <data name="fz_name" xml:space="preserve">
+    <value>Group name</value>
+  </data>
+  <data name="fz_no_display" xml:space="preserve">
+    <value>Do not show groups</value>
+  </data>
+  <data name="host_add_1" xml:space="preserve">
+    <value>Please enter the server IP address!</value>
+  </data>
+  <data name="host_add_2" xml:space="preserve">
+    <value>Please enter the remote account!</value>
+  </data>
+  <data name="host_add_3" xml:space="preserve">
+    <value>Modified successfully</value>
+  </data>
+  <data name="host_add_4" xml:space="preserve">
+    <value>Modification failed</value>
+  </data>
+  <data name="host_add_5" xml:space="preserve">
+    <value>Added successfully</value>
+  </data>
+  <data name="host_add_6" xml:space="preserve">
+    <value>Add failed</value>
+  </data>
+  <data name="host_Load_1" xml:space="preserve">
+    <value>Data lookup failed</value>
+  </data>
+  <data name="host_Load_2" xml:space="preserve">
+    <value>modify</value>
+  </data>
+  <data name="ini_Audio_0" xml:space="preserve">
+    <value>Play on this computer</value>
+  </data>
+  <data name="ini_Audio_1" xml:space="preserve">
+    <value>Play on remote computer</value>
+  </data>
+  <data name="ini_Audio_2" xml:space="preserve">
+    <value>Don't play</value>
+  </data>
+  <data name="ini_Color_0" xml:space="preserve">
+    <value>256colour</value>
+  </data>
+  <data name="ini_Color_1" xml:space="preserve">
+    <value>Enhanced color (15 bit)</value>
+  </data>
+  <data name="ini_Color_2" xml:space="preserve">
+    <value>Enhanced color (16 bit)</value>
+  </data>
+  <data name="ini_Color_3" xml:space="preserve">
+    <value>True color (24 bit)</value>
+  </data>
+  <data name="ini_Color_4" xml:space="preserve">
+    <value>Highest quality (32 bits)</value>
+  </data>
+  <data name="ini_Network_0" xml:space="preserve">
+    <value>Modem (56 kbps)</value>
+  </data>
+  <data name="ini_Network_1" xml:space="preserve">
+    <value>Low speed broadband (256 Kbps - 2 Mbps)</value>
+  </data>
+  <data name="ini_Network_2" xml:space="preserve">
+    <value>Satellite (2 Mbps - 16 Mbps, high latency)</value>
+  </data>
+  <data name="ini_Network_3" xml:space="preserve">
+    <value>High speed broadband (2 Mbps - 10 Mbps)</value>
+  </data>
+  <data name="ini_Network_4" xml:space="preserve">
+    <value>Wan (10 Mbps or higher, high latency)</value>
+  </data>
+  <data name="ini_Network_5" xml:space="preserve">
+    <value>Local area network (LAN) (10 Mbps)</value>
+  </data>
+  <data name="ini_Width_Height" xml:space="preserve">
+    <value>Full screen</value>
+  </data>
+  <data name="link" xml:space="preserve">
+    <value>Remote connection</value>
+  </data>
+  <data name="link_break" xml:space="preserve">
+    <value>Connection disconnected!</value>
+  </data>
+  <data name="link_desktop" xml:space="preserve">
+    <value>Remote desktop</value>
+  </data>
+  <data name="link_host_err" xml:space="preserve">
+    <value>The remote computer is not connected</value>
+  </data>
+  <data name="link_host_max" xml:space="preserve">
+    <value>The screen resolution is too small or there are too many remote desktop windows</value>
+  </data>
+  <data name="link_host_null" xml:space="preserve">
+    <value>There is no remote desktop window on the current display</value>
+  </data>
+  <data name="list_bz" xml:space="preserve">
+    <value>Remarks</value>
+  </data>
+  <data name="list_name" xml:space="preserve">
+    <value>name</value>
+  </data>
+  <data name="list_name_name" xml:space="preserve">
+    <value>Column header name</value>
+  </data>
+  <data name="list_name_name_px" xml:space="preserve">
+    <value>Column width (pixels)</value>
+  </data>
+  <data name="list_server" xml:space="preserve">
+    <value>Server IP</value>
+  </data>
+  <data name="list_user_name" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="msg_data_null" xml:space="preserve">
+    <value>Content cannot be empty</value>
+  </data>
+  <data name="msg_del_fail" xml:space="preserve">
+    <value>Deletion failed</value>
+  </data>
+  <data name="msg_del_title" xml:space="preserve">
+    <value>Delete prompt</value>
+  </data>
+  <data name="msg_del_yes_no" xml:space="preserve">
+    <value>Are you sure to delete?</value>
+  </data>
+  <data name="msg_fail" xml:space="preserve">
+    <value>fail</value>
+  </data>
+  <data name="msg_IS_en_ch" xml:space="preserve">
+    <value>Language Changed.  Restart now?</value>
+  </data>
+  <data name="msg_password_no" xml:space="preserve">
+    <value>Wrong password</value>
+  </data>
+  <data name="msg_title" xml:space="preserve">
+    <value>msg</value>
+  </data>
+  <data name="ping_err" xml:space="preserve">
+    <value>err</value>
+  </data>
+  <data name="ping_out" xml:space="preserve">
+    <value>over time</value>
+  </data>
+  <data name="run_AxInterop" xml:space="preserve">
+    <value>AxInterop.MSTSCLib.dll    file missing</value>
+  </data>
+  <data name="run_exe" xml:space="preserve">
+    <value>The application is already running...</value>
+  </data>
+  <data name="run_Interop" xml:space="preserve">
+    <value>Interop.MSTSCLib.dll    file missing</value>
+  </data>
+  <data name="run_rar" xml:space="preserve">
+    <value>The software is currently running in the temporary folder of the system, and the software data will not be saved normally  \r\n\r\n IF you are running the software directly in the compressed software, please decompress all the software from the compressed package before running.</value>
+  </data>
+</root>
