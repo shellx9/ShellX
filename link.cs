@@ -454,9 +454,15 @@ namespace rdp
             {
                 if (OSVersion_bool)
                 {
-                    axMsRdp_Client_AA.Disconnect();
+                    if (axMsRdp_Client_AA != null)
+                    {
+                        axMsRdp_Client_AA.Disconnect();
+                    }
                 }else{
-                    axMsRdp_Client_BB.Disconnect();
+                    if (axMsRdp_Client_BB != null)
+                    {
+                        axMsRdp_Client_BB.Disconnect();
+                    }
                 }
             }
             catch (Exception projectError)
@@ -473,9 +479,13 @@ namespace rdp
             //        return;
             //    }
             host_close();  //断开链接
-            this.LinkLabel1.Text = "远程桌面连接已断开，重新连接";
-            this.LinkLabel1.LinkArea = new LinkArea(10, 4);
-            this.LinkLabel1.Visible = true;
+            if (this.LinkLabel1 != null)
+            {
+                this.LinkLabel1.Visible = true;
+                this.LinkLabel1.Text = "远程桌面连接已断开，重新连接";
+                this.LinkLabel1.LinkArea = new LinkArea(10, 4);
+            }
+            
             //}
         }
 

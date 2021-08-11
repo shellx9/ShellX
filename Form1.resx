@@ -161,6 +161,30 @@
   <metadata name="toolStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>258, 17</value>
   </metadata>
+  <data name="toolStrip2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="toolStrip2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>723, 25</value>
+  </data>
+  <data name="toolStrip2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="toolStrip2.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Name" xml:space="preserve">
+    <value>toolStrip2</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip2.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="tsbConnect.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -236,12 +260,58 @@
   <data name="menu.Text" xml:space="preserve">
     <value>设置</value>
   </data>
+  <data name="menu_cn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="menu_cn.Text" xml:space="preserve">
+    <value>中文-CN</value>
+  </data>
+  <data name="menu_usa.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="menu_usa.Text" xml:space="preserve">
+    <value>英文-USA</value>
+  </data>
+  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 6</value>
+  </data>
+  <data name="menu_Website.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAANFJREFUWEft1a0KwmAUxvHdh8278C5MhkWz1SZYbFpMlkUxrIpBUWHiYGgaGKbo
+        WBAnOpi4+bEPeRyW13rSyjnwr4cf7xuOhJznB3j1GgiqJXLJeobtZYiOViCnHVoC8GzXcC8XycX6CJuz
+        iuZEIjfe1hnAAAYwgAEMEIDUsZCYOrmPf0UQnXHwpuS8x04A5m4MZf8mZwdp9nw2cFTo3VYCUFmEkPo+
+        OdWJAFcFxtkaav9fwAAGMIABDGBA13pDXobkjGuSXTUDMGV6p4EA5DfAF2yjS5/tw/0AAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
+  <data name="menu_Website.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="menu_Website.Text" xml:space="preserve">
+    <value>访问官网</value>
+  </data>
+  <data name="menu_About.Size" type="System.Drawing.Size, System.Drawing">
+    <value>216, 22</value>
+  </data>
+  <data name="menu_About.Text" xml:space="preserve">
+    <value>关于(远程桌面批量管理器)</value>
+  </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
     <value>6, 25</value>
   </data>
   <metadata name="context_Color.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>934, 17</value>
   </metadata>
+  <data name="ToolStrip_Color.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ToolStrip_Color.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="ToolStrip_Color.Text" xml:space="preserve">
+    <value>标记</value>
+  </data>
   <data name="context_Color.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 4</value>
   </data>
@@ -266,6 +336,15 @@
   <metadata name="context_fz.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>822, 17</value>
   </metadata>
+  <data name="ToolStrip_fz.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="ToolStrip_fz.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 22</value>
+  </data>
+  <data name="ToolStrip_fz.Text" xml:space="preserve">
+    <value>分组</value>
+  </data>
   <data name="context_fz.Size" type="System.Drawing.Size, System.Drawing">
     <value>61, 4</value>
   </data>
@@ -344,30 +423,6 @@
   <data name="tool_mini_mize.Text" xml:space="preserve">
     <value>最小化</value>
   </data>
-  <data name="toolStrip2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="toolStrip2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>723, 25</value>
-  </data>
-  <data name="toolStrip2.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="toolStrip2.Text" xml:space="preserve">
-    <value>toolStrip1</value>
-  </data>
-  <data name="&gt;&gt;toolStrip2.Name" xml:space="preserve">
-    <value>toolStrip2</value>
-  </data>
-  <data name="&gt;&gt;toolStrip2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStrip2.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;toolStrip2.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>368, 17</value>
   </metadata>
@@ -375,19 +430,19 @@
     <value>False</value>
   </data>
   <data name="tsMenuConnect.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>100, 22</value>
   </data>
   <data name="tsMenuConnect.Text" xml:space="preserve">
     <value>连接</value>
   </data>
   <data name="toolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
+    <value>97, 6</value>
   </data>
   <data name="tsMenuEdit.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="tsMenuEdit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>100, 22</value>
   </data>
   <data name="tsMenuEdit.Text" xml:space="preserve">
     <value>编辑</value>
@@ -396,37 +451,19 @@
     <value>False</value>
   </data>
   <data name="tsMenuDel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>100, 22</value>
   </data>
   <data name="tsMenuDel.Text" xml:space="preserve">
     <value>删除</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>177, 6</value>
-  </data>
-  <data name="ToolStrip_Color.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStrip_Color.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="ToolStrip_Color.Text" xml:space="preserve">
-    <value>标记</value>
-  </data>
-  <data name="ToolStrip_fz.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="ToolStrip_fz.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 22</value>
-  </data>
-  <data name="ToolStrip_fz.Text" xml:space="preserve">
-    <value>分组</value>
+    <value>97, 6</value>
   </data>
   <data name="ToolStrip_upper.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="ToolStrip_upper.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>100, 22</value>
   </data>
   <data name="ToolStrip_upper.Text" xml:space="preserve">
     <value>上升</value>
@@ -435,7 +472,7 @@
     <value>False</value>
   </data>
   <data name="ToolStrip_lower.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>100, 22</value>
   </data>
   <data name="ToolStrip_lower.Text" xml:space="preserve">
     <value>上升</value>
@@ -459,8 +496,8 @@
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAD8
-        CAAAAk1TRnQBSQFMAwEBAAGIAQABiAEAARQBAAEUAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMA
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAe
+        CAAAAk1TRnQBSQFMAwEBAAGQAQABkAEAARQBAAEUAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMA
         AVADAAEUAwABAQEAAQgFAAFAAQYYAAGAAgABgAMAAoABAAGAAwABgAEAAYABAAKAAgADwAEAAcAB3AHA
         AQAB8AHKAaYBAAEzBQABMwEAATMBAAEzAQACMwIAAxYBAAMcAQADIgEAAykBAANVAQADTQEAA0IBAAM5
         AQABgAF8Af8BAAJQAf8BAAGTAQAB1gEAAf8B7AHMAQABxgHWAe8BAAHWAucBAAGQAakBrQIAAf8BMwMA
@@ -488,17 +525,13 @@
         AcwBAAH/AZkB/wEAAf8BzAIAAf8BzAEzAQAB/wHMAWYBAAH/AcwBmQEAAf8CzAEAAf8BzAH/AQAC/wEz
         AQABzAH/AWYBAAL/AZkBAAL/AcwBAAJmAf8BAAFmAf8BZgEAAWYC/wEAAf8CZgEAAf8BZgH/AQAC/wFm
         AQABIQEAAaUBAANfAQADdwEAA4YBAAOWAQADywEAA7IBAAPXAQAD3QEAA+MBAAPqAQAD8QEAA/gBAAHw
-        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wEAAf8B8wHyAfEE8AW8
-        BPAB8QHyAfQ8AAH/AfQB8QLwCrwD8AHzAf89AAHzEPEB8j4AAfMJ8QHwBvEB8j4AAfMG8gHxAZkBUgFY
-        AXkBHAHwBPI+AAHzAfICvALxArwCUgFZAXoBWQGZBPI+AAHzAfIBvAW0AXQBUgFZAXoBWQF5BPI+AAHz
-        AfIB8QK6AbQBswGtARwBUgFZAXoBWQFYAfED8j4AAfMC8gG7AboBtAGzAYsBkgFSA3kBWAG8A/I+AAPz
-        AbsBugG0AbMBiwGRAXQBcwJyAXMBBwHyAvM+AAPzAfAB9wO0AQcBcwJQAVYCeAHyAvM+AAPzAfIBUgN0
-        AUwB7wJQAVYCeAG8AvM+AATzAZMBWQJTAUwB7wJQAVYCeAEHAvM+AATzAfABUwFZAVMBTAFvAXMBUAN4
-        AZgC8z4AAfMD9AHzAXUBWQFTAU0BTAEcAfAD8wG8AfMB9D4AAfME9AEaAXkCdAGTAfMH9D4AB/QC8wn0
-        PgAB9AL/DPQC/wH0PgAB/xD0Af+NAAFCAU0BPgcAAT4DAAEoAwABUAMAARQDAAEBAQABAQUAAfAXAAP/
-        GQABgAEAARAJAAGAAQABEAkAAYABAAEQCQABgAEAARAJAAGAAQABEAkAAYABAAEQCQABgAEAARAJAAGA
-        AQABEAkAAYABAAEQCQABgAEAARAJAAGAAQABEAkAAYABAAEQCQABgAEAARAJAAGAAQABEAkAAYABAAEQ
-        CQABgAEAARAJAAGAAQABEAkAAv8B8AkACw==
+        AfsB/wEAAaQCoAEAA4ADAAH/AgAB/wMAAv8BAAH/AwAB/wEAAf8BAAL/AgAD/wwAAf8B9AHzARkBCQG7
+        AboCsz4AA/8B9QH0AfMBGQEJAbMIsgGzPAABCQG7AboDswKyAQkBuwmyAbM8AAG6B7IBCQG7CbIBszwA
+        AboHsgEJAbsJsgGzPAABugeyAQkBuwmyAbM8AAG6B7IBCQG7CbIBszwAAboHsgEJAbsJsgGzPAABugey
+        AQkBuwmyAbM8ABQZPAABCQe6AgkKujwAAboHsgEJAbsJsgGzPAABugeyAQkBuwmyAbM8AAG6B7IBCQG7
+        CbIBszwAAboHsgEJAbsJsgGzPAABugeyAQkBuwmyAbM8AAG6AbMGsgEJAbsJsgGzPAAC9QHzARkBCQG6
+        AbMBsgEJAbsJsgGzQgAB/wH1AfQB8wIJAroBswSyAbNMAAH0ARkBuwG6PAABQgFNAT4HAAE+AwABKAMA
+        AVADAAEUAwABAQEAAQEFAAHwFwAD/wEAAf8B4AoAAcDLAAH8CwAC/woACw==
 </value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
@@ -525,43 +558,6 @@
   </data>
   <data name="&gt;&gt;listView1.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="menu_cn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
-  </data>
-  <data name="menu_cn.Text" xml:space="preserve">
-    <value>中文-CN</value>
-  </data>
-  <data name="menu_usa.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
-  </data>
-  <data name="menu_usa.Text" xml:space="preserve">
-    <value>英文-USA</value>
-  </data>
-  <data name="toolStripSeparator6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>213, 6</value>
-  </data>
-  <data name="menu_Website.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAANFJREFUWEft1a0KwmAUxvHdh8278C5MhkWz1SZYbFpMlkUxrIpBUWHiYGgaGKbo
-        WBAnOpi4+bEPeRyW13rSyjnwr4cf7xuOhJznB3j1GgiqJXLJeobtZYiOViCnHVoC8GzXcC8XycX6CJuz
-        iuZEIjfe1hnAAAYwgAEMEIDUsZCYOrmPf0UQnXHwpuS8x04A5m4MZf8mZwdp9nw2cFTo3VYCUFmEkPo+
-        OdWJAFcFxtkaav9fwAAGMIABDGBA13pDXobkjGuSXTUDMGV6p4EA5DfAF2yjS5/tw/0AAAAAAElFTkSu
-        QmCC
-</value>
-  </data>
-  <data name="menu_Website.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
-  </data>
-  <data name="menu_Website.Text" xml:space="preserve">
-    <value>访问官网</value>
-  </data>
-  <data name="menu_About.Size" type="System.Drawing.Size, System.Drawing">
-    <value>216, 22</value>
-  </data>
-  <data name="menu_About.Text" xml:space="preserve">
-    <value>关于(远程桌面批量管理器)</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -648,9 +644,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -669,77 +662,29 @@
   <data name="&gt;&gt;tsItemLabel.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
-    <value>toolStripSeparator1</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
-    <value>toolStripSeparator2</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
-    <value>toolStripSeparator5</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator7.Name" xml:space="preserve">
-    <value>toolStripSeparator7</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
-    <value>toolStripSeparator4</value>
-  </data>
-  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;backgroundWorker1.Name" xml:space="preserve">
-    <value>backgroundWorker1</value>
-  </data>
-  <data name="&gt;&gt;backgroundWorker1.Type" xml:space="preserve">
-    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
-    <value>imageList1</value>
-  </data>
-  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsMenuConnect.Name" xml:space="preserve">
-    <value>tsMenuConnect</value>
-  </data>
-  <data name="&gt;&gt;tsMenuConnect.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsMenuEdit.Name" xml:space="preserve">
-    <value>tsMenuEdit</value>
-  </data>
-  <data name="&gt;&gt;tsMenuEdit.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tsMenuDel.Name" xml:space="preserve">
-    <value>tsMenuDel</value>
-  </data>
-  <data name="&gt;&gt;tsMenuDel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;tsbConnect.Name" xml:space="preserve">
     <value>tsbConnect</value>
   </data>
   <data name="&gt;&gt;tsbConnect.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
+    <value>toolStripSeparator1</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;tsbAddData.Name" xml:space="preserve">
     <value>tsbAddData</value>
   </data>
   <data name="&gt;&gt;tsbAddData.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Name" xml:space="preserve">
+    <value>toolStripSeparator2</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tsbEdit.Name" xml:space="preserve">
     <value>tsbEdit</value>
@@ -789,6 +734,12 @@
   <data name="&gt;&gt;menu_About.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">
+    <value>toolStripSeparator5</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;tool_Color.Name" xml:space="preserve">
     <value>tool_Color</value>
   </data>
@@ -813,6 +764,12 @@
   <data name="&gt;&gt;tsindex_lower.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;toolStripSeparator7.Name" xml:space="preserve">
+    <value>toolStripSeparator7</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;tsbini.Name" xml:space="preserve">
     <value>tsbini</value>
   </data>
@@ -836,6 +793,30 @@
   </data>
   <data name="&gt;&gt;tool_mini_mize.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsMenuConnect.Name" xml:space="preserve">
+    <value>tsMenuConnect</value>
+  </data>
+  <data name="&gt;&gt;tsMenuConnect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Name" xml:space="preserve">
+    <value>toolStripSeparator4</value>
+  </data>
+  <data name="&gt;&gt;toolStripSeparator4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripSeparator, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsMenuEdit.Name" xml:space="preserve">
+    <value>tsMenuEdit</value>
+  </data>
+  <data name="&gt;&gt;tsMenuEdit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tsMenuDel.Name" xml:space="preserve">
+    <value>tsMenuDel</value>
+  </data>
+  <data name="&gt;&gt;tsMenuDel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator3.Name" xml:space="preserve">
     <value>toolStripSeparator3</value>
@@ -866,6 +847,18 @@
   </data>
   <data name="&gt;&gt;ToolStrip_lower.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;backgroundWorker1.Name" xml:space="preserve">
+    <value>backgroundWorker1</value>
+  </data>
+  <data name="&gt;&gt;backgroundWorker1.Type" xml:space="preserve">
+    <value>System.ComponentModel.BackgroundWorker, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Name" xml:space="preserve">
+    <value>imageList1</value>
+  </data>
+  <data name="&gt;&gt;imageList1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>

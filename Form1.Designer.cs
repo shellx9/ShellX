@@ -35,22 +35,10 @@ namespace rdp
             this.tsMsg = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsItemLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.context_Color = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.context_fz = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.tsMenuConnect = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsMenuEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsMenuDel = new System.Windows.Forms.ToolStripMenuItem();
             this.tsbConnect = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbAddData = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbEdit = new System.Windows.Forms.ToolStripButton();
             this.tsbDel = new System.Windows.Forms.ToolStripButton();
             this.menu = new System.Windows.Forms.ToolStripDropDownButton();
@@ -59,19 +47,31 @@ namespace rdp
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.menu_Website = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_About = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.tool_Color = new System.Windows.Forms.ToolStripDropDownButton();
+            this.context_Color = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tool_fz = new System.Windows.Forms.ToolStripDropDownButton();
+            this.context_fz = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsindex_upper = new System.Windows.Forms.ToolStripButton();
             this.tsindex_lower = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbini = new System.Windows.Forms.ToolStripButton();
             this.tool_Window_Tile = new System.Windows.Forms.ToolStripButton();
             this.tool_Overlay_window = new System.Windows.Forms.ToolStripButton();
             this.tool_mini_mize = new System.Windows.Forms.ToolStripButton();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsMenuConnect = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsMenuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsMenuDel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.ToolStrip_Color = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_fz = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_upper = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStrip_lower = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.listView1 = new System.Windows.Forms.ListView();
             this.statusStrip1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -120,93 +120,6 @@ namespace rdp
             resources.ApplyResources(this.toolStrip2, "toolStrip2");
             this.toolStrip2.Name = "toolStrip2";
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
-            // 
-            // context_Color
-            // 
-            this.context_Color.Name = "context_Color";
-            resources.ApplyResources(this.context_Color, "context_Color");
-            // 
-            // context_fz
-            // 
-            this.context_fz.Name = "context_fz";
-            resources.ApplyResources(this.context_fz, "context_fz");
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsMenuConnect,
-            this.toolStripSeparator4,
-            this.tsMenuEdit,
-            this.tsMenuDel,
-            this.toolStripSeparator3,
-            this.ToolStrip_Color,
-            this.ToolStrip_fz,
-            this.ToolStrip_upper,
-            this.ToolStrip_lower});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "windows.ico");
-            // 
-            // listView1
-            // 
-            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
-            resources.ApplyResources(this.listView1, "listView1");
-            this.listView1.HideSelection = false;
-            this.listView1.Name = "listView1";
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
-            // 
-            // tsMenuConnect
-            // 
-            resources.ApplyResources(this.tsMenuConnect, "tsMenuConnect");
-            this.tsMenuConnect.Image = global::rdp.Properties.Resources.a1;
-            this.tsMenuConnect.Name = "tsMenuConnect";
-            this.tsMenuConnect.Click += new System.EventHandler(this.tsMenuConnect_Click);
-            // 
-            // tsMenuEdit
-            // 
-            resources.ApplyResources(this.tsMenuEdit, "tsMenuEdit");
-            this.tsMenuEdit.Image = global::rdp.Properties.Resources.b2;
-            this.tsMenuEdit.Name = "tsMenuEdit";
-            this.tsMenuEdit.Click += new System.EventHandler(this.tsMenuEdit_Click);
-            // 
-            // tsMenuDel
-            // 
-            resources.ApplyResources(this.tsMenuDel, "tsMenuDel");
-            this.tsMenuDel.Image = global::rdp.Properties.Resources.tsbConnect_Image;
-            this.tsMenuDel.Name = "tsMenuDel";
-            this.tsMenuDel.Click += new System.EventHandler(this.tsMenuDel_Click);
-            // 
             // tsbConnect
             // 
             this.tsbConnect.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -215,6 +128,11 @@ namespace rdp
             this.tsbConnect.Name = "tsbConnect";
             this.tsbConnect.Click += new System.EventHandler(this.tsbConnect_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
             // tsbAddData
             // 
             this.tsbAddData.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -222,6 +140,11 @@ namespace rdp
             resources.ApplyResources(this.tsbAddData, "tsbAddData");
             this.tsbAddData.Name = "tsbAddData";
             this.tsbAddData.Click += new System.EventHandler(this.tsbAddData_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // tsbEdit
             // 
@@ -285,6 +208,11 @@ namespace rdp
             resources.ApplyResources(this.menu_About, "menu_About");
             this.menu_About.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
+            // 
             // tool_Color
             // 
             this.tool_Color.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -293,6 +221,12 @@ namespace rdp
             this.tool_Color.Image = global::rdp.Properties.Resources.c1;
             this.tool_Color.Name = "tool_Color";
             // 
+            // context_Color
+            // 
+            this.context_Color.Name = "context_Color";
+            this.context_Color.OwnerItem = this.ToolStrip_Color;
+            resources.ApplyResources(this.context_Color, "context_Color");
+            // 
             // tool_fz
             // 
             this.tool_fz.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -300,6 +234,12 @@ namespace rdp
             resources.ApplyResources(this.tool_fz, "tool_fz");
             this.tool_fz.Image = global::rdp.Properties.Resources.c2;
             this.tool_fz.Name = "tool_fz";
+            // 
+            // context_fz
+            // 
+            this.context_fz.Name = "context_fz";
+            this.context_fz.OwnerItem = this.ToolStrip_fz;
+            resources.ApplyResources(this.context_fz, "context_fz");
             // 
             // tsindex_upper
             // 
@@ -316,6 +256,11 @@ namespace rdp
             this.tsindex_lower.Image = global::rdp.Properties.Resources.c4;
             this.tsindex_lower.Name = "tsindex_lower";
             this.tsindex_lower.Click += new System.EventHandler(this.tsindex_lower_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            resources.ApplyResources(this.toolStripSeparator7, "toolStripSeparator7");
             // 
             // tsbini
             // 
@@ -349,6 +294,47 @@ namespace rdp
             this.tool_mini_mize.Name = "tool_mini_mize";
             this.tool_mini_mize.Click += new System.EventHandler(this.tool_mini_mize_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsMenuConnect,
+            this.toolStripSeparator4,
+            this.tsMenuEdit,
+            this.tsMenuDel,
+            this.toolStripSeparator3,
+            this.ToolStrip_Color,
+            this.ToolStrip_fz,
+            this.ToolStrip_upper,
+            this.ToolStrip_lower});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            // 
+            // tsMenuConnect
+            // 
+            resources.ApplyResources(this.tsMenuConnect, "tsMenuConnect");
+            this.tsMenuConnect.Image = global::rdp.Properties.Resources.a1;
+            this.tsMenuConnect.Name = "tsMenuConnect";
+            this.tsMenuConnect.Click += new System.EventHandler(this.tsMenuConnect_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+            // 
+            // tsMenuEdit
+            // 
+            resources.ApplyResources(this.tsMenuEdit, "tsMenuEdit");
+            this.tsMenuEdit.Image = global::rdp.Properties.Resources.b2;
+            this.tsMenuEdit.Name = "tsMenuEdit";
+            this.tsMenuEdit.Click += new System.EventHandler(this.tsMenuEdit_Click);
+            // 
+            // tsMenuDel
+            // 
+            resources.ApplyResources(this.tsMenuDel, "tsMenuDel");
+            this.tsMenuDel.Image = global::rdp.Properties.Resources.b3;
+            this.tsMenuDel.Name = "tsMenuDel";
+            this.tsMenuDel.Click += new System.EventHandler(this.tsMenuDel_Click);
+            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -381,6 +367,22 @@ namespace rdp
             this.ToolStrip_lower.Image = global::rdp.Properties.Resources.c4;
             this.ToolStrip_lower.Name = "ToolStrip_lower";
             this.ToolStrip_lower.Click += new System.EventHandler(this.ToolStrip_lower_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "win.ico");
+            // 
+            // listView1
+            // 
+            this.listView1.ContextMenuStrip = this.contextMenuStrip1;
+            resources.ApplyResources(this.listView1, "listView1");
+            this.listView1.HideSelection = false;
+            this.listView1.Name = "listView1";
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // Form1
             // 

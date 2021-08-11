@@ -1,14 +1,13 @@
+C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\ShellX.exe
+C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\en\ShellX.resources.dll
+C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\System.Data.SQLite.dll
 C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\App.config
 C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\ShellX.exe.config
-C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\ShellX.exe
 C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\ShellX.pdb
-C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\en\ShellX.resources.dll
 C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\zh-Hans\ShellX.resources.dll
 C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\zh-Hant\ShellX.resources.dll
-C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\System.Data.SQLite.dll
 C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\Interop.MSTSCLib.dll
 C:\Users\Admin\Desktop\3389rdp\git\RDP\bin\Debug\AxInterop.MSTSCLib.dll
-C:\Users\Admin\Desktop\3389rdp\git\RDP\obj\Debug\rdp.csproj.AssemblyReference.cache
 C:\Users\Admin\Desktop\3389rdp\git\RDP\obj\Debug\Interop.MSTSCLib.dll
 C:\Users\Admin\Desktop\3389rdp\git\RDP\obj\Debug\AxInterop.MSTSCLib.dll
 C:\Users\Admin\Desktop\3389rdp\git\RDP\obj\Debug\rdp.csproj.ResolveComReference.cache

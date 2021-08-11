@@ -42,6 +42,7 @@ namespace rdp
             this.erase = new System.Windows.Forms.Button();
             this.nametxt = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.TextBox();
+            this.checkBox_add_continuity = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // iptxt
@@ -66,8 +67,8 @@ namespace rdp
             // 
             // ip
             // 
-            resources.ApplyResources(this.ip, "ip");
             this.ip.ForeColor = System.Drawing.SystemColors.MenuText;
+            resources.ApplyResources(this.ip, "ip");
             this.ip.Name = "ip";
             // 
             // user
@@ -109,10 +110,19 @@ namespace rdp
             resources.ApplyResources(this.name, "name");
             this.name.Name = "name";
             // 
+            // checkBox_add_continuity
+            // 
+            resources.ApplyResources(this.checkBox_add_continuity, "checkBox_add_continuity");
+            this.checkBox_add_continuity.Checked = true;
+            this.checkBox_add_continuity.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox_add_continuity.Name = "checkBox_add_continuity";
+            this.checkBox_add_continuity.UseVisualStyleBackColor = true;
+            // 
             // host
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.checkBox_add_continuity);
             this.Controls.Add(this.name);
             this.Controls.Add(this.nametxt);
             this.Controls.Add(this.erase);
@@ -149,5 +159,6 @@ namespace rdp
         private System.Windows.Forms.Button erase;
         private System.Windows.Forms.Label nametxt;
         private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.CheckBox checkBox_add_continuity;
     }
 }

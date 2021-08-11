@@ -123,6 +123,9 @@
   <data name="bztxt.Text" xml:space="preserve">
     <value>remark:</value>
   </data>
+  <data name="checkBox_add_continuity.Text" xml:space="preserve">
+    <value>Add continuously</value>
+  </data>
   <data name="erase.Text" xml:space="preserve">
     <value>undo</value>
   </data>

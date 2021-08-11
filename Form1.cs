@@ -69,6 +69,7 @@ namespace rdp
         private void Form1_Load(object sender, EventArgs e)  // 主窗体-窗体加载
         {
             //=============
+            //this.ShowInTaskbar = true;  //
             listView1_ini();  //shell列表初始化
             BindsListViewDataSource();   // 主机绑定初始化
             Bontext_fzDataSource();   //分组初始化
@@ -106,7 +107,7 @@ namespace rdp
             }
         }
 
-        public void ping_set(string id,bool color_bool, string Time_to, Color Colorxxx,string fz)
+        public void ping_set(string id,bool color_bool, string Time_to, Color Colorxxx,string fz)  //设置ping
         {
             try
             {
@@ -118,10 +119,10 @@ namespace rdp
                         item.SubItems[7].Text = Time_to;
                         if (color_bool == true)
                         {
-                            if (fz == "0")
-                            {
+                            //if (fz == "0")
+                            //{
                                 item.UseItemStyleForSubItems = false;
-                            }
+                            //}
                             item.SubItems[7].BackColor = Colorxxx;   //Color Color_xx
                         }
                     }
@@ -178,7 +179,8 @@ namespace rdp
                             //是否色彩标记
                             if (Time_to.Contains("超时")|| Time_to.Contains("失败") || Time_to.Contains("over time") || Time_to.Contains("err"))
                             {
-                                color_bool = false;
+                                color_bool = true;
+                                //color_bool = false;
                             }else{
                                 int int_Time_to = 0;
                                 try { int_Time_to = Convert.ToInt32(Time_to); } catch (Exception e) { Msg.add("receive", " ToInt32 err:" + e.Message); }
@@ -883,8 +885,7 @@ namespace rdp
         }
         private void Form1_SizeChanged(object sender, EventArgs e) // 主窗体-恢复窗体
         {
-            // 隐藏任务栏图标
-            this.ShowInTaskbar = false;
+            this.ShowInTaskbar = true;
         }
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)  //主窗体-关闭
         {

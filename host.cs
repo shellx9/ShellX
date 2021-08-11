@@ -108,8 +108,12 @@ namespace rdp
                     return;
                 }
             }
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            
+            if (checkBox_add_continuity.Checked == false)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
         private void host_FormClosed(object sender, FormClosedEventArgs e)
