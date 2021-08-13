@@ -102,6 +102,7 @@ namespace rdp
                         SqlLiteHelper.UpdateData(out sError, sSql, true);
                     }
                     //=====================
+                    this.ip.Text = "";
                     CommonSettings.WinMessage(LangResx.Common.host_add_5);
                 }else{
                     CommonSettings.WinMessage(LangResx.Common.host_add_6);

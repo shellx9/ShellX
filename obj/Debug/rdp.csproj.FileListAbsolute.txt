@@ -45,4 +45,3 @@ C:\Users\Admin\Desktop\3389rdp\git\RDP\obj\Debug\zh-Hant\ShellX.resources.dll
 C:\Users\Admin\Desktop\3389rdp\git\RDP\obj\Debug\rdp.csproj.CopyComplete
 C:\Users\Admin\Desktop\3389rdp\git\RDP\obj\Debug\ShellX.exe
 C:\Users\Admin\Desktop\3389rdp\git\RDP\obj\Debug\ShellX.pdb
-C:\Users\Admin\Desktop\3389rdp\git\RDP\obj\Debug\rdp.csproj.AssemblyReference.cache

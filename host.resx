@@ -278,6 +278,9 @@
   <data name="password.Location" type="System.Drawing.Point, System.Drawing">
     <value>103, 98</value>
   </data>
+  <data name="password.PasswordChar" type="System.Char, mscorlib" xml:space="preserve">
+    <value>*</value>
+  </data>
   <data name="password.Size" type="System.Drawing.Size, System.Drawing">
     <value>225, 21</value>
   </data>

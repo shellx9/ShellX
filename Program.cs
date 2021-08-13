@@ -5,7 +5,8 @@
 using System.Windows.Forms;
 
 using System.IO;
-using System.Threading;
+using System.Diagnostics;
+
 
 namespace rdp
 {
@@ -52,23 +53,32 @@ namespace rdp
 
         static void ini_Load()  //初始化状态
         {
-            //=========
-            //程序互斥 防止重复运行
-            bool createNew;
-            using (Mutex mutex = new Mutex(true, Application.ProductName, out createNew))
-            {
-                if (!createNew)
-                {
-                    MessageBox.Show(LangResx.Common.run_exe);
-                    System.Environment.Exit(1);
-                }
-            }
-
+            //=========解压后运行
             if (Application.StartupPath.StartsWith(Path.GetTempPath(), StringComparison.OrdinalIgnoreCase))
             {
                 MessageBox.Show(LangResx.Common.run_rar);
                 Environment.Exit(1);
             }
+
+            //程序互斥 防止重复运行
+            int num2 = 0;
+            string fileNameWithoutExtension = Path.GetFileNameWithoutExtension(Application.ExecutablePath);
+            Process[] processesByName = Process.GetProcessesByName(fileNameWithoutExtension);
+            foreach (Process process in processesByName)
+            {
+                if (process.MainModule.FileName == Application.ExecutablePath)
+                {
+                    num2++;
+                }
+                //Console.WriteLine("xxxxxxxxx" + process.MainModule.FileName);
+            }
+            if (num2 > 1)
+            {
+                MessageBox.Show(LangResx.Common.run_exe);
+                System.Environment.Exit(1);
+            }
+
+
             //=========文件检测
             //https://www.cnblogs.com/stulzq/p/6090183.html    MD5文件校验
             string file_name = "AxInterop.MSTSCLib.dll";

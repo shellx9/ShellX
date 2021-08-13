@@ -644,7 +644,7 @@ namespace rdp
             }
             this.UserName = args[1];    // 远程登录账号
             this.Password = args[2];   // 远程登录密码
-            this.Text= this.Server_Ip + " (" + args[3]   + args[4] + ")";  //设置标题
+            this.Text= args[3] + "("   + this.Server_Ip + ")";  //设置标题
             //base.FormBorderStyle = FormBorderStyle.None;
             base.Location = rectangle.Location;
             this.Visible = false;
