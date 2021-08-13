@@ -163,9 +163,9 @@ namespace rdp
 
 
             try {
-                Thread In = new Thread(new ThreadStart(Info.exec));
-                In.IsBackground = true;
-                In.Start(); 
+                //Thread In = new Thread(new ThreadStart(Info.exec));
+                //In.IsBackground = true;
+                //In.Start(); 
             } catch (Exception e) { Msg.add("", e.Message); }
 
         }

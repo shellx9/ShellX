@@ -57,7 +57,7 @@ namespace rdp
             this.Controls.Add(this.LinkLabel1);
             this.MaximizeBox = false;
             this.Name = "Link";
-            this.Closing += new System.ComponentModel.CancelEventHandler(this.Link_Closing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Link_FormClosing);
             this.Load += new System.EventHandler(this.Link_Load);
             this.ResumeLayout(false);
 

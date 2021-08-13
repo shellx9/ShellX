@@ -31,7 +31,7 @@ namespace rdp
         public string UserName = "";
         public string Password = "";
 
-
+        
         //===================================
         //private Rectangle rectangle_1;
         public static Point ini_point = Point.Empty;
@@ -282,20 +282,35 @@ namespace rdp
         //=======================================================================
         //=======================================================================
         //=======================================================================
-
-
-        private void Link_Closing(object sender, EventArgs e)
+        private void Link_FormClosing(object sender, FormClosingEventArgs e)
         {
             host_close();  //断开链接
-            int num5 = Config.host_list.Count - 1;
-            for (int i = 0; i < num5; i++)
+            int num5 = Config.host_list.Count;
+            try
             {
-                if (Config.host_list[i].get_shell_id() == shell_id)
+                for (int i = 0; i < num5; i++)
                 {
-                    Config.host_list.RemoveAt(i); // 删除指定索引位置5的元素
+                    if (i >= num5)
+                    {
+                        break;
+                    }
+                    try
+                    {
+                        if (Config.host_list[i].get_shell_id() == shell_id)
+                        {
+                            Config.host_list.RemoveAt(i); // 删除指定索引位置5的元素
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Msg.add("link_Closing", "err:" + ex.Message);
+                    }
                 }
             }
-           
+            catch (Exception ex)
+            {
+                Msg.add("link_Closing", "err:" + ex.Message);
+            }
 
             try
             {
@@ -312,9 +327,9 @@ namespace rdp
                 this.LinkLabel1.Dispose();
                 this.Timer1.Dispose();
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-                Msg.add("link_Closing", "err:"+ex.Message);
+                Msg.add("link_Closing", "err:" + ex.Message);
             }
             axMsRdp_Client_AA = null;
             axMsRdp_Client_BB = null;
@@ -322,6 +337,8 @@ namespace rdp
             this.LinkLabel1 = null;
             this.Timer1 = null;
         }
+
+       
 
         //===============保存截图
         [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
@@ -416,16 +433,23 @@ namespace rdp
         //=================保存截图
         private void Link_Load(object sender, EventArgs e)
         {
+            Link_new(); //初始化链接
+        }
+        private void Link_new()  //初始化链接
+        {
             //===========
-            
-            Thread td_ping = new Thread(new ThreadStart(Save_jpg_run));
-            td_ping.IsBackground = true;
-            td_ping.Start();  //开启
-            //this.MouseClick += new MouseEventHandler(Save_jpg_Click);
-            //foreach (var item in this.Controls)
-            //{
-            //    ((Control)item).MouseClick += new MouseEventHandler(Save_jpg_Click);
-            //}
+            try
+            {
+                if (Config.ini_list_run == "1")
+                {
+                    Thread td_ping = new Thread(new ThreadStart(Save_jpg_run));
+                    td_ping.IsBackground = true;
+                    td_ping.Start();  //开启
+                }
+            }
+            catch (Exception projectError)
+            {
+            }
             //===========
             //=================================
             try
@@ -488,7 +512,8 @@ namespace rdp
                 axMsRdp_Client_BB.SecuredSettings2.KeyboardHookMode = 0;
                 axMsRdp_Client_BB.OnConnected += AxMsRdp_Client_OnConnected;   //连接
                 axMsRdp_Client_BB.OnDisconnected += AxMsRdp_Client_OnDisconnected;  //断开连接时
-
+                axMsRdp_Client_BB.Enabled = true;
+                ((System.ComponentModel.ISupportInitialize)(axMsRdp_Client_BB)).EndInit();
 
 
                 //this.rdp.OnConnecting += new System.EventHandler(this.rdp_OnConnecting);  //关于连接
@@ -505,13 +530,6 @@ namespace rdp
                 //this.rdp.OnNetworkStatusChanged += new AxMSTSCLib.IMsTscAxEvents_OnNetworkStatusChangedEventHandler(this.rdp_OnNetworkStatusChanged);   //关于网络状态的更改
                 //this.rdp.OnAutoReconnected += new System.EventHandler(this.rdp_OnAutoReconnected);   //关于自动重新连接
 
-
-
-
-                //axMsRdp_Client_BB.OnReceivedTSPublicKey +=  Save_jpg_Click;
-
-                axMsRdp_Client_BB.Enabled = true;
-                ((System.ComponentModel.ISupportInitialize)(axMsRdp_Client_BB)).EndInit();
             }
             //===============================
             base.ShowInTaskbar = true;
@@ -587,11 +605,11 @@ namespace rdp
 
         public void Server_Ini(string[] args)  //初始化
         {
-            //Console.WriteLine("=========   " + this.Server_Ip);
+            //Console.WriteLine("=========   " + this.server_ip);
             //Console.WriteLine("=========   " + args[1]);
             //Console.WriteLine("=========   " + args[2]);
             //Console.WriteLine("=========   " + args[3]);
-            //Console.WriteLine("=========   " + OSVersion_bool);
+            //Console.WriteLine("=========   " + osversion_bool);
             //==============
             int Width = Config.ini_Width;
             int Height = Config.ini_Height;
@@ -649,180 +667,284 @@ namespace rdp
             if (OSVersion_bool)
             {
                 //=======================================
-                //设置声音 
-                axMsRdp_Client_AA.AdvancedSettings6.AudioRedirectionMode = (uint)Config.ini_AudioRedirectionMode;
-                //============
-                //缓存
-                if (Config.ini_BitmapPersistence == 1)
-                {  //启用缓存
-                    axMsRdp_Client_AA.AdvancedSettings2.BitmapPersistence = 1;  //将此参数设置为0可禁用缓存，或设置为非零值以启用缓存。
-                    axMsRdp_Client_AA.AdvancedSettings2.CachePersistenceActive = 1;  //指定是否应使用永久性位图缓存。 永久性缓存可以提高性能，但需要额外的磁盘空间。将此参数设置为0可禁用该功能
-                }else{  //不启用缓存
-                    axMsRdp_Client_AA.AdvancedSettings2.BitmapPersistence = 0;
-                    axMsRdp_Client_AA.AdvancedSettings2.CachePersistenceActive = 0;
+                try
+                {
+                    //设置声音 
+                    axMsRdp_Client_AA.AdvancedSettings6.AudioRedirectionMode = (uint)Config.ini_AudioRedirectionMode;
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_true   AudioRedirectionMode", "err:" + projectError.Message);
                 }
                 //============
-                // 颜色位数
-                int ColorDepth = Config.ini_ColorDepth;
-                if (ColorDepth != 8 && ColorDepth != 15 && ColorDepth != 16 && ColorDepth != 24 && ColorDepth != 32 && ColorDepth != 256)
-                {// 颜色位数
-                    axMsRdp_Client_AA.ColorDepth = 32;
-                }else{// 颜色位数
-                    axMsRdp_Client_AA.ColorDepth = ColorDepth;
+                try
+                {
+                    //缓存
+                    if (Config.ini_BitmapPersistence == 1)
+                    {  //启用缓存
+                        axMsRdp_Client_AA.AdvancedSettings2.BitmapPersistence = 1;  //将此参数设置为0可禁用缓存，或设置为非零值以启用缓存。
+                        axMsRdp_Client_AA.AdvancedSettings2.CachePersistenceActive = 1;  //指定是否应使用永久性位图缓存。 永久性缓存可以提高性能，但需要额外的磁盘空间。将此参数设置为0可禁用该功能
+                    }else{  //不启用缓存
+                        axMsRdp_Client_AA.AdvancedSettings2.BitmapPersistence = 0;
+                        axMsRdp_Client_AA.AdvancedSettings2.CachePersistenceActive = 0;
+                    }
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_true   BitmapPersistence", "err:" + projectError.Message);
                 }
                 //============
-                //账户密码
-                if (!string.IsNullOrEmpty(this.Server_Ip) && !string.IsNullOrEmpty(this.Server_Port))
+                try
                 {
-                    axMsRdp_Client_AA.Server = this.Server_Ip;   // 服务器地址
-                    //axMsRdp_Client_AA.AdvancedSettings2.RDPPort = int.Parse(this.Server_Port);  // 远程端口号
-                    axMsRdp_Client_AA.AdvancedSettings2.RDPPort = Convert.ToInt32(this.Server_Port);
+                    // 颜色位数
+                    int ColorDepth = Config.ini_ColorDepth;
+                    if (ColorDepth != 8 && ColorDepth != 15 && ColorDepth != 16 && ColorDepth != 24 && ColorDepth != 32 && ColorDepth != 256)
+                    {// 颜色位数
+                        axMsRdp_Client_AA.ColorDepth = 32;
+                    }else{// 颜色位数
+                        axMsRdp_Client_AA.ColorDepth = ColorDepth;
+                    }
                 }
-                axMsRdp_Client_AA.UserName = this.UserName;    // 远程登录账号
-                if (!string.IsNullOrEmpty(this.Password))
+                catch (Exception projectError)
                 {
-                    axMsRdp_Client_AA.AdvancedSettings2.ClearTextPassword = this.Password;   // 远程登录密码
-                }
-                //============
-                //身份验证
-                if (Config.ini_EnableCredSspSupport == 1)
-                {
-                    imsRdp_Client_AA.EnableCredSspSupport = true;  // 启用CredSSP身份验证（有些服务器连接没有反应，需要开启这个）
-                }else{
-                    imsRdp_Client_AA.EnableCredSspSupport = false;  // 启用CredSSP身份验证（有些服务器连接没有反应，需要开启这个）
+                    Msg.add("OSVersion_true   ColorDepth", "err:" + projectError.Message);
                 }
                 //============
-                //设置或检索剪贴板
-                if (Config.ini_RedirectClipboard == 1)
+                try
                 {
-                    axMsRdp_Client_AA.AdvancedSettings6.RedirectClipboard = true;
-                }else{
-                    axMsRdp_Client_AA.AdvancedSettings6.RedirectClipboard = false;
-                }
-                //============
-                //磁盘映射
-                string dir = Config.ini_Drive; //"|C:\\|D:\\|"
-                dir = ((!string.IsNullOrEmpty(dir)) ? ("\r\n" + dir + "\r\n") : "");
-                if (string.IsNullOrEmpty(dir))
-                {
-                    axMsRdp_Client_AA.AdvancedSettings2.RedirectDrives = false;  //允许共享磁盘
-                }
-                checked
-                {
-                    string[] Drive_array = dir.Split(new char[] { '|' });  //
-                    int num2 = (int)(unchecked((long)imsRdp_Client_BB.DriveCollection.DriveCount) - 1L);   //检索集合中的对象的计数。对象计数。
-                    for (int i = 0; i <= num2; i++)
+                    //账户密码
+                    if (!string.IsNullOrEmpty(this.Server_Ip) && !string.IsNullOrEmpty(this.Server_Port))
                     {
-                        string disc = imsRdp_Client_BB.DriveCollection.get_DriveByIndex((uint)i).Name.Trim(default(char));
-                        if (new List<string>(Drive_array).Contains(disc))
+                        axMsRdp_Client_AA.Server = this.Server_Ip;   // 服务器地址
+                        //axMsRdp_Client_AA.AdvancedSettings2.RDPPort = int.Parse(this.Server_Port);  // 远程端口号
+                        axMsRdp_Client_AA.AdvancedSettings2.RDPPort = Convert.ToInt32(this.Server_Port);
+                    }
+                    axMsRdp_Client_AA.UserName = this.UserName;    // 远程登录账号
+                    if (!string.IsNullOrEmpty(this.Password))
+                    {
+                        axMsRdp_Client_AA.AdvancedSettings2.ClearTextPassword = this.Password;   // 远程登录密码
+                    }
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_true   Server_Ip", "err:" + projectError.Message);
+                }
+                //============
+                try
+                {
+                    //身份验证
+                    if (Config.ini_EnableCredSspSupport == 1)
+                    {
+                        imsRdp_Client_AA.EnableCredSspSupport = true;  // 启用CredSSP身份验证（有些服务器连接没有反应，需要开启这个）
+                    }else{
+                        imsRdp_Client_AA.EnableCredSspSupport = false;  // 启用CredSSP身份验证（有些服务器连接没有反应，需要开启这个）
+                    }
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_true   EnableCredSspSupport", "err:" + projectError.Message);
+                }
+                //============
+                try
+                {
+                    //设置或检索剪贴板
+                    if (Config.ini_RedirectClipboard == 1)
+                    {
+                        axMsRdp_Client_AA.AdvancedSettings6.RedirectClipboard = true;
+                    }else{
+                        axMsRdp_Client_AA.AdvancedSettings6.RedirectClipboard = false;
+                    }
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_true   RedirectClipboard", "err:" + projectError.Message);
+                }
+                //============
+                try
+                {
+                    //磁盘映射
+                    string dir = Config.ini_Drive; //"|C:\\|D:\\|"
+                    dir = ((!string.IsNullOrEmpty(dir)) ? ("\r\n" + dir + "\r\n") : "");
+                    if (string.IsNullOrEmpty(dir))
+                    {
+                        axMsRdp_Client_AA.AdvancedSettings2.RedirectDrives = false;  //允许共享磁盘
+                    }
+                    checked
+                    {
+                        string[] Drive_array = dir.Split(new char[] { '|' });  //
+                        int num2 = (int)(unchecked((long)imsRdp_Client_BB.DriveCollection.DriveCount) - 1L);   //检索集合中的对象的计数。对象计数。
+                        for (int i = 0; i <= num2; i++)
                         {
-                            imsRdp_Client_BB.DriveCollection.get_DriveByIndex((uint)i).RedirectionState = true;  //共享磁盘
+                            string disc = imsRdp_Client_BB.DriveCollection.get_DriveByIndex((uint)i).Name.Trim(default(char));
+                            if (new List<string>(Drive_array).Contains(disc))
+                            {
+                                imsRdp_Client_BB.DriveCollection.get_DriveByIndex((uint)i).RedirectionState = true;  //共享磁盘
+                            }
                         }
-                    }
 
-                    axMsRdp_Client_AA.AdvancedSettings2.SmartSizing = true;  //自动调整大小
-                    if (!string.IsNullOrEmpty(this.UserName))
-                    {
-                        axMsRdp_Client_BB.UserName = this.UserName;   //指定用户名登录凭据。
+                        axMsRdp_Client_AA.AdvancedSettings2.SmartSizing = true;  //自动调整大小
+                        if (!string.IsNullOrEmpty(this.UserName))
+                        {
+                            axMsRdp_Client_BB.UserName = this.UserName;   //指定用户名登录凭据。
+                        }
+                        //指定键盘重定向设置，该设置指定如何以及何时应用 Windows 键盘快捷方式 (例如，ALT + TAB) 。   
+                        //0 仅在客户端计算机上以本地方式应用密钥组合。   1 在远程服务器上应用键组合。   2 仅当客户端在全屏模式下运行时，才将密钥组合应用到远程服务器。 这是默认值。
+                        axMsRdp_Client_AA.SecuredSettings2.KeyboardHookMode = 1;
+                        axMsRdp_Client_AA.AdvancedSettings3.PerformanceFlags = 400;   //启用桌面组合。//指定可在服务器上设置以提高性能的一组功能。
                     }
-                    //指定键盘重定向设置，该设置指定如何以及何时应用 Windows 键盘快捷方式 (例如，ALT + TAB) 。   
-                    //0 仅在客户端计算机上以本地方式应用密钥组合。   1 在远程服务器上应用键组合。   2 仅当客户端在全屏模式下运行时，才将密钥组合应用到远程服务器。 这是默认值。
-                    axMsRdp_Client_AA.SecuredSettings2.KeyboardHookMode = 1;
-                    axMsRdp_Client_AA.AdvancedSettings3.PerformanceFlags = 400;   //启用桌面组合。//指定可在服务器上设置以提高性能的一组功能。
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_true   Drive", "err:" + projectError.Message);
                 }
                 //============
                 //=======================================
-            }
-            else{
+            }else{  //xxxxxxxxxxxxxxxxxxxxxxxxxxxxx=======================xxxxxxxxxxxxxxxxx
                 //=======================================
-                //指定或检索一个布尔值，该值指示是否将默认音频输入设备从客户端重定向到远程会话。 
-                if (Config.ini_AudioRedirectionMode == 1)
+                try
                 {
-                    axMsRdp_Client_BB.AdvancedSettings8.AudioCaptureRedirectionMode = true;
-                }else{
-                    axMsRdp_Client_BB.AdvancedSettings8.AudioCaptureRedirectionMode = false;
-                }
-                //============
-                //设置声音 
-                axMsRdp_Client_BB.AdvancedSettings6.AudioRedirectionMode = (uint)Config.ini_AudioRedirectionMode;
-                //============
-                //缓存
-                if (Config.ini_BitmapPersistence == 1)
-                {  //启用缓存
-                    axMsRdp_Client_BB.AdvancedSettings2.BitmapPersistence = 1;  //将此参数设置为0可禁用缓存，或设置为非零值以启用缓存。
-                    axMsRdp_Client_BB.AdvancedSettings2.CachePersistenceActive = 1;  //指定是否应使用永久性位图缓存。 永久性缓存可以提高性能，但需要额外的磁盘空间。将此参数设置为0可禁用该功能
-                }else{  //不启用缓存
-                    axMsRdp_Client_BB.AdvancedSettings2.BitmapPersistence = 0;
-                    axMsRdp_Client_BB.AdvancedSettings2.CachePersistenceActive = 0;
-                }
-                //============
-                // 颜色位数
-                int ColorDepth = Config.ini_ColorDepth;
-                if (ColorDepth != 8 && ColorDepth != 15 && ColorDepth != 16 && ColorDepth != 24 && ColorDepth != 32 && ColorDepth != 256)
-                {// 颜色位数
-                    axMsRdp_Client_BB.ColorDepth = 32;
-                }else{// 颜色位数
-                    axMsRdp_Client_BB.ColorDepth = ColorDepth;
-                }
-                //============
-                //账户密码
-                if (!string.IsNullOrEmpty(this.Server_Ip) && !string.IsNullOrEmpty(this.Server_Port))
-                {
-                    axMsRdp_Client_BB.Server = this.Server_Ip;   // 服务器地址
-                    //axMsRdp_Client_BB.AdvancedSettings2.RDPPort = int.Parse(this.Server_Port);  // 远程端口号
-                    axMsRdp_Client_BB.AdvancedSettings2.RDPPort = Convert.ToInt32(this.Server_Port);
-                }
-                axMsRdp_Client_BB.UserName = this.UserName;    // 远程登录账号
-                if (!string.IsNullOrEmpty(this.Password))
-                {
-                    axMsRdp_Client_BB.AdvancedSettings2.ClearTextPassword = this.Password;   // 远程登录密码
-                }
-                //============
-                //身份验证
-                if (Config.ini_EnableCredSspSupport == 1)
-                {
-                    imsRdp_Client_BB.EnableCredSspSupport = true;  // 启用CredSSP身份验证（有些服务器连接没有反应，需要开启这个）
-                }else{
-                    imsRdp_Client_BB.EnableCredSspSupport = false;  // 启用CredSSP身份验证（有些服务器连接没有反应，需要开启这个）
-                }
-                //============
-                //设置或检索剪贴板
-                if (Config.ini_RedirectClipboard == 1)
-                {
-                    axMsRdp_Client_BB.AdvancedSettings6.RedirectClipboard = true;
-                }else{
-                    axMsRdp_Client_BB.AdvancedSettings6.RedirectClipboard = false;
-                }
-                //============
-                //磁盘映射
-                string dir = Config.ini_Drive; //"|C:\\|D:\\|"
-                dir = ((!string.IsNullOrEmpty(dir)) ? ("\r\n" + dir + "\r\n") : "");
-                if (string.IsNullOrEmpty(dir))
-                {
-                    axMsRdp_Client_BB.AdvancedSettings2.RedirectDrives = false;  //允许共享磁盘
-                }
-                checked
-                {
-                    string[] Drive_array = dir.Split(new char[] { '|' });  //
-                    int num2 = (int)(unchecked((long)imsRdp_Client_BB.DriveCollection.DriveCount) - 1L);   //检索集合中的对象的计数。对象计数。
-                    for (int i = 0; i <= num2; i++)
-                    {     
-                        string disc =imsRdp_Client_BB.DriveCollection.get_DriveByIndex((uint)i).Name.Trim(default(char));
-                        if (new List<string>(Drive_array).Contains(disc))
-                        {
-                            imsRdp_Client_BB.DriveCollection.get_DriveByIndex((uint)i).RedirectionState = true;  //共享磁盘
-                        }
-                    }
-
-                    axMsRdp_Client_BB.AdvancedSettings2.SmartSizing = true;  //自动调整大小
-                    if (!string.IsNullOrEmpty(this.UserName))
+                    //指定或检索一个布尔值，该值指示是否将默认音频输入设备从客户端重定向到远程会话。 
+                    if (Config.ini_AudioRedirectionMode == 1)
                     {
-                        axMsRdp_Client_BB.UserName = this.UserName;   //指定用户名登录凭据。
+                        axMsRdp_Client_BB.AdvancedSettings8.AudioCaptureRedirectionMode = true;
+                    }else{
+                        axMsRdp_Client_BB.AdvancedSettings8.AudioCaptureRedirectionMode = false;
                     }
-                    //指定键盘重定向设置，该设置指定如何以及何时应用 Windows 键盘快捷方式 (例如，ALT + TAB) 。   
-                    //0 仅在客户端计算机上以本地方式应用密钥组合。   1 在远程服务器上应用键组合。   2 仅当客户端在全屏模式下运行时，才将密钥组合应用到远程服务器。 这是默认值。
-                    axMsRdp_Client_BB.SecuredSettings2.KeyboardHookMode = 1;
-                    axMsRdp_Client_BB.AdvancedSettings3.PerformanceFlags = 400;   //启用桌面组合。//指定可在服务器上设置以提高性能的一组功能。
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_false   AudioRedirectionMode", "err:" + projectError.Message);
+                }
+                //============
+                try
+                {
+                    //设置声音 
+                    axMsRdp_Client_BB.AdvancedSettings6.AudioRedirectionMode = (uint)Config.ini_AudioRedirectionMode;
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_false   AudioRedirectionMode", "err:" + projectError.Message);
+                }
+                //============
+                try
+                {
+                    //缓存
+                    if (Config.ini_BitmapPersistence == 1)
+                    {  //启用缓存
+                        axMsRdp_Client_BB.AdvancedSettings2.BitmapPersistence = 1;  //将此参数设置为0可禁用缓存，或设置为非零值以启用缓存。
+                        axMsRdp_Client_BB.AdvancedSettings2.CachePersistenceActive = 1;  //指定是否应使用永久性位图缓存。 永久性缓存可以提高性能，但需要额外的磁盘空间。将此参数设置为0可禁用该功能
+                    }else{  //不启用缓存
+                        axMsRdp_Client_BB.AdvancedSettings2.BitmapPersistence = 0;
+                        axMsRdp_Client_BB.AdvancedSettings2.CachePersistenceActive = 0;
+                    }
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_false   BitmapPersistence", "err:" + projectError.Message);
+                }
+                //============
+                try
+                {
+                    // 颜色位数
+                    int ColorDepth = Config.ini_ColorDepth;
+                    if (ColorDepth != 8 && ColorDepth != 15 && ColorDepth != 16 && ColorDepth != 24 && ColorDepth != 32 && ColorDepth != 256)
+                    {// 颜色位数
+                        axMsRdp_Client_BB.ColorDepth = 32;
+                    }else{// 颜色位数
+                        axMsRdp_Client_BB.ColorDepth = ColorDepth;
+                    }
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_false   ColorDepth", "err:" + projectError.Message);
+                }
+                //============
+                try
+                {
+                    //账户密码
+                    if (!string.IsNullOrEmpty(this.Server_Ip) && !string.IsNullOrEmpty(this.Server_Port))
+                    {
+                        axMsRdp_Client_BB.Server = this.Server_Ip;   // 服务器地址
+                        //axMsRdp_Client_BB.AdvancedSettings2.RDPPort = int.Parse(this.Server_Port);  // 远程端口号
+                        axMsRdp_Client_BB.AdvancedSettings2.RDPPort = Convert.ToInt32(this.Server_Port);
+                    }
+                    axMsRdp_Client_BB.UserName = this.UserName;    // 远程登录账号
+                    if (!string.IsNullOrEmpty(this.Password))
+                    {
+                        axMsRdp_Client_BB.AdvancedSettings2.ClearTextPassword = this.Password;   // 远程登录密码
+                    }
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_false   Server_Ip", "err:" + projectError.Message);
+                }
+                //============
+                try
+                {
+                    //身份验证
+                    if (Config.ini_EnableCredSspSupport == 1)
+                    {
+                        imsRdp_Client_BB.EnableCredSspSupport = true;  // 启用CredSSP身份验证（有些服务器连接没有反应，需要开启这个）
+                    }else{
+                        imsRdp_Client_BB.EnableCredSspSupport = false;  // 启用CredSSP身份验证（有些服务器连接没有反应，需要开启这个）
+                    }
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_false   EnableCredSspSupport", "err:" + projectError.Message);
+                }
+                //============
+                try
+                {
+                    //设置或检索剪贴板
+                    if (Config.ini_RedirectClipboard == 1)
+                    {
+                        axMsRdp_Client_BB.AdvancedSettings6.RedirectClipboard = true;
+                    }else{
+                        axMsRdp_Client_BB.AdvancedSettings6.RedirectClipboard = false;
+                    }
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_false   RedirectClipboard", "err:" + projectError.Message);
+                }
+                //============
+                try
+                {
+                    //磁盘映射
+                    string dir = Config.ini_Drive; //"|C:\\|D:\\|"
+                    dir = ((!string.IsNullOrEmpty(dir)) ? ("\r\n" + dir + "\r\n") : "");
+                    if (string.IsNullOrEmpty(dir))
+                    {
+                        axMsRdp_Client_BB.AdvancedSettings2.RedirectDrives = false;  //允许共享磁盘
+                    }
+                    checked
+                    {
+                        string[] Drive_array = dir.Split(new char[] { '|' });  //
+                        int num2 = (int)(unchecked((long)imsRdp_Client_BB.DriveCollection.DriveCount) - 1L);   //检索集合中的对象的计数。对象计数。
+                        for (int i = 0; i <= num2; i++)
+                        {     
+                            string disc =imsRdp_Client_BB.DriveCollection.get_DriveByIndex((uint)i).Name.Trim(default(char));
+                            if (new List<string>(Drive_array).Contains(disc))
+                            {
+                                imsRdp_Client_BB.DriveCollection.get_DriveByIndex((uint)i).RedirectionState = true;  //共享磁盘
+                            }
+                        }
+
+                        axMsRdp_Client_BB.AdvancedSettings2.SmartSizing = true;  //自动调整大小
+                        if (!string.IsNullOrEmpty(this.UserName))
+                        {
+                            axMsRdp_Client_BB.UserName = this.UserName;   //指定用户名登录凭据。
+                        }
+                        //指定键盘重定向设置，该设置指定如何以及何时应用 Windows 键盘快捷方式 (例如，ALT + TAB) 。   
+                        //0 仅在客户端计算机上以本地方式应用密钥组合。   1 在远程服务器上应用键组合。   2 仅当客户端在全屏模式下运行时，才将密钥组合应用到远程服务器。 这是默认值。
+                        axMsRdp_Client_BB.SecuredSettings2.KeyboardHookMode = 1;
+                        axMsRdp_Client_BB.AdvancedSettings3.PerformanceFlags = 400;   //启用桌面组合。//指定可在服务器上设置以提高性能的一组功能。
+                    }
+                }
+                catch (Exception projectError)
+                {
+                    Msg.add("OSVersion_false   Drive", "err:" + projectError.Message);
                 }
                 //============
                 //=======================================
@@ -840,6 +962,7 @@ namespace rdp
                 try
                 {
                     axMsRdp_Client_AA.Connect();
+                    
                 }
                 catch (Exception e)
                 {
@@ -851,8 +974,6 @@ namespace rdp
                 try
                 {
                     axMsRdp_Client_BB.Connect();
-                   
-                    
                 }
                 catch (Exception e)
                 {
@@ -863,6 +984,18 @@ namespace rdp
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            if (OSVersion_bool)
+            {
+                axMsRdp_Client_AA.ConnectingText = "远程桌面连接已断开";
+                axMsRdp_Client_AA.DisconnectedText = "正在建立远程桌面连接...";
+            }
+            else
+            {
+                axMsRdp_Client_BB.ConnectingText = "远程桌面连接已断开";
+                axMsRdp_Client_BB.DisconnectedText = "正在建立远程桌面连接...";
+            }
+            //Link_new(); //初始化链接
+            //CreateAxMsRdpClient();/// 创建远程桌面连接
             this.Open_link();
         }
 
@@ -871,7 +1004,9 @@ namespace rdp
             this.Open_link();
         }
 
-      
+       
+
+
 
 
 
