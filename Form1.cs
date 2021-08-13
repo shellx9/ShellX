@@ -7,8 +7,8 @@ using System.Windows.Forms;
 using AxMSTSCLib;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Collections; 
-
+using System.Collections;
+using System.Runtime.InteropServices;
 
 
 
@@ -51,15 +51,33 @@ using System.Text.RegularExpressions;
 //好的ICO  下载
 //https://www.iconfont.cn/
 
+
+
 namespace rdp
 {
+
     public partial class Form1 : Form
     {
         private List<string> axMsRdpcArray = null;  //链接列表
         private Thread td_ping = null;  //ping线程
 
-        //public static List<Link> list_3 = new List<Link>();  //主机列表
 
+        //缩率图
+        private static int img_Width= 120;   
+        private static int img_Height= 88;
+        //是行距  是列距  间距
+        private static int img_row = 130;   //行间距
+        private static int img_loc = 138;   //列间距
+
+        //传统的 4:3 （1.33:1）
+        //小   93  67       103   110
+        //中   120  88       130   138    1.363
+        //大   211  155      191   230
+        //===============================
+        private int LVM_SETICONSPACING = 0x1035;
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern int SendMessage(IntPtr hWnd, int msg, int wParam, int lParam);
+        //===============================
         public Form1()
         {
             InitializeComponent();
@@ -68,6 +86,11 @@ namespace rdp
 
         private void Form1_Load(object sender, EventArgs e)  // 主窗体-窗体加载
         {
+            //=============
+            if (!Directory.Exists("data"))
+            {
+                Directory.CreateDirectory("data");//创建新路径
+            }
             //=============
             //this.ShowInTaskbar = true;  //
             listView1_ini();  //shell列表初始化
@@ -96,9 +119,12 @@ namespace rdp
             {
                 try
                 {
-                    td_ping = new Thread(new ThreadStart(receive));
-                    td_ping.IsBackground = true;
-                    td_ping.Start();  //开启
+                    if (Config.ini_list_run == "0")
+                    {
+                        td_ping = new Thread(new ThreadStart(receive));
+                        td_ping.IsBackground = true;
+                        td_ping.Start();  //开启
+                    }
                 }
                 catch (Exception e)
                 {
@@ -111,22 +137,29 @@ namespace rdp
         {
             try
             {
-                foreach (ListViewItem item in this.listView1.Items)
+                this.listView1.BeginUpdate();
+                Invoke(new Action(() =>
                 {
-                    string idxx = item.SubItems[5].Text;
-                    if (idxx == id)
+                    foreach (ListViewItem item in this.listView1.Items)
                     {
-                        item.SubItems[7].Text = Time_to;
-                        if (color_bool == true)
+                        string idxx = item.SubItems[5].Text;
+                        if (idxx == id)
                         {
-                            //if (fz == "0")
-                            //{
+                            item.SubItems[7].Text = Time_to;
+                            if (color_bool == true)
+                            {
+                            
+                                //if (fz == "0")
+                                //{
                                 item.UseItemStyleForSubItems = false;
-                            //}
-                            item.SubItems[7].BackColor = Colorxxx;   //Color Color_xx
+                                //}
+                                item.SubItems[7].BackColor = Colorxxx;   //Color Color_xx
+                            
+                            }
                         }
                     }
-                }
+                }));
+                this.listView1.EndUpdate();
             }
             catch (Exception e)
             {
@@ -164,15 +197,15 @@ namespace rdp
                             //Console.WriteLine("xxxxxxxxxServer_Ip  " + Server_Ip);//输出语句，自动换行
                             //Console.WriteLine("xxxxxxxxxTime_to  " + Time_to);//输出语句，自动换行
                             bool color_bool = false;
-                            Color Colorxx = Color.Red;
-                            //https://www.cnblogs.com/qiudongxu/p/7169443.html
-                            //<= 50ms Color.LimeGreen
-                            //50~100ms Color.Lime
-                            //100~150ms Color.Chartreuse
-                            //150~200ms Color.Moccasin
-                            //> 200ms Color.DarkOrange
-                            //超时         Color.Red
-                            if (ping_color == "1")
+                            Color Colorxx = Color.FromArgb(255, 0, 0);
+                                //https://www.sojson.com/rgb.html
+                                //<= 50ms 0 205 102
+                                //50~100ms 0 238 118
+                                //100~150ms 84 255 159
+                                //150~200ms 255 246 143
+                                //> 200ms 244 164 96
+                                //超时     255 0 0
+                                if (ping_color == "1")
                             {
                                 color_bool = true;
                             }
@@ -184,14 +217,14 @@ namespace rdp
                             }else{
                                 int int_Time_to = 0;
                                 try { int_Time_to = Convert.ToInt32(Time_to); } catch (Exception e) { Msg.add("receive", " ToInt32 err:" + e.Message); }
-                                //=============
-                                if (int_Time_to <=50){Colorxx = Color.Red;}
-                                if (int_Time_to >= 50 && int_Time_to <= 100){Colorxx = Color.Lime;}
-                                if (int_Time_to >= 100 && int_Time_to <= 150) { Colorxx = Color.Chartreuse; }
-                                if (int_Time_to >= 150 && int_Time_to <= 200) { Colorxx = Color.Moccasin; }
-                                if (int_Time_to >= 200) { Colorxx = Color.Red; }
-                                //=============
-                                Time_to = string.Format("{0} ms", Time_to);
+                                    //=============
+                                if (int_Time_to <= 50) { Colorxx = Color.FromArgb(0, 205, 102); } 
+                                if (int_Time_to >= 50 && int_Time_to <= 100){Colorxx = Color.FromArgb(0, 238, 118); }
+                                if (int_Time_to >= 100 && int_Time_to <= 150) { Colorxx = Color.FromArgb(84, 255, 159); }
+                                if (int_Time_to >= 150 && int_Time_to <= 200) { Colorxx = Color.FromArgb(255, 246, 143); }
+                                if (int_Time_to >= 200) { Colorxx = Color.FromArgb(244, 164, 96); }
+                                    //=============
+                                    Time_to = string.Format("{0} ms", Time_to);
                             }
                         
                             this.BeginInvoke(new EventHandler(delegate {
@@ -236,7 +269,7 @@ namespace rdp
         }
         public static async Task task_YS_A()
         {
-            await Task.Delay(2000);
+            await Task.Delay(1000);
             //Console.WriteLine("3秒后执行，方式二 输出语句...");
         }
         public static async Task task_YS_B()
@@ -254,6 +287,35 @@ namespace rdp
 
         public void listView1_ini()  //shell列表初始化
         {
+            //=========
+            //list_1.Text 小图标
+            //list_2.Text 中图标
+            //list_3.Text 大图标
+            //list_close.Text 显示视图
+            //list_display.Text 关闭视图
+
+            if (Config.ini_list_run == "0")
+            {
+                list_display.BackColor = Color.FromArgb(176, 226, 255);  //关闭视图
+
+                list_close.BackColor = Color.FromArgb(240,240,240);  //显示视图
+                list_1.BackColor = Color.FromArgb(240, 240, 240);
+                list_2.BackColor = Color.FromArgb(240, 240, 240);
+                list_3.BackColor = Color.FromArgb(240, 240, 240);
+            }
+            else
+            {
+                list_close.BackColor = Color.FromArgb(176, 226, 255);  //显示视图
+
+                list_display.BackColor = Color.FromArgb(240, 240, 240);  //关闭视图
+                list_1.BackColor = Color.FromArgb(240, 240, 240);
+                list_2.BackColor = Color.FromArgb(240, 240, 240);
+                list_3.BackColor = Color.FromArgb(240, 240, 240);
+                if (Config.ini_list_index == "1") { list_1.BackColor = Color.FromArgb(176, 226, 255); }
+                if (Config.ini_list_index == "2") { list_2.BackColor = Color.FromArgb(176, 226, 255); }
+                if (Config.ini_list_index == "3") { list_3.BackColor = Color.FromArgb(176, 226, 255); }
+            }
+            //=========
             this.listView1.Clear();
             this.listView1.Columns.Add(LangResx.Common.list_name, int.Parse(find_list_data("1")), HorizontalAlignment.Left);
             this.listView1.Columns.Add(LangResx.Common.list_server, int.Parse(find_list_data("2")), HorizontalAlignment.Left);
@@ -268,12 +330,91 @@ namespace rdp
             this.listView1.FullRowSelect = true;   //设置是否行选择模式
             //this.listView1.GridLines = true;   //设置行和列之间是否显示网格线
             this.listView1.MultiSelect = true;   //设置是否可以选择多个项
-            this.listView1.LargeImageList = this.imageList1;
-            //this.listView1.StateImageList = this.imageList1;
-            this.listView1.SmallImageList = this.imageList1;
-            //ImageList imgList = new ImageList();
-            //imgList.ImageSize = new Size(1, 20);// 设置行高 20 //分别是宽和高  
-            //this.listView1.SmallImageList = imgList; //这里设置listView的SmallImageList ,用imgList将其撑大 
+
+
+
+            //中   93  67       103   110
+            //中   120  88       130   138    1.363
+            //大   211  155      191   230
+            if(Config.ini_list_run=="0"){
+                this.listView1.View = View.Details;   //视图模式
+                this.listView1.LargeImageList = this.imageList1;
+                //this.listView1.StateImageList = this.imageList1;
+                this.listView1.SmallImageList = this.imageList1;
+            }
+            else{
+                if (Config.ini_list_index == "1"){  //小
+                    img_Width = 93;  //缩率图
+                    img_Height = 67;  //缩率图
+                    img_row = 103;   //行间距
+                    img_loc = 110;   //列间距
+                }
+                if (Config.ini_list_index == "2")  //中
+                {
+                    img_Width = 120;  //缩率图
+                    img_Height = 88;  //缩率图
+                    img_row = 130;   //行间距
+                    img_loc = 138;   //列间距
+                }
+                if (Config.ini_list_index == "3")   //大
+                {
+                    img_Width = 211;  //缩率图
+                    img_Height = 155;  //缩率图
+                    img_row = 191;   //行间距
+                    img_loc = 230;   //列间距
+                }
+                //=====
+                this.listView1.View = View.LargeIcon;   //视图模式
+                ImageList imageL = new ImageList();
+                imageL.ImageSize = new Size(img_Width, img_Height);
+                //imageL.Images.Add(Image.FromFile("C:\\Users\\Admin\\Desktop\\3389rdp\\git\\123.jpg"));
+                int vvx = 0;
+                foreach (Image img in imageList_img.Images)
+                {   //lvi.ImageKey = "host.png";      
+                    imageL.Images.Add(imageList_img.Images.Keys[vvx].ToString(),img);    //这个地方不知道怎么找KEY name
+                    ++vvx;
+                }
+                //imageL.Images.Add("123.jpg", new Bitmap("C:\\Users\\Admin\\Desktop\\3389rdp\\git\\123.jpg"));
+                JSONArray jsonArray = data_ergodic();  //遍历目录
+                for (int i = 0; i < jsonArray.Count; i++)
+                {
+                    string name = jsonArray[i].ToString();
+                    string fiel_path = Application.StartupPath + "\\data\\" + name;
+                    imageL.Images.Add(name, new Bitmap(fiel_path));
+                }
+                this.listView1.LargeImageList = imageL;
+                //Console.WriteLine("xxxxxxxx  " + imageL.Images.Count);
+                //=====
+            }
+
+            //for (int i = 0; i < imageList1.Images.Count; i++)
+            //{
+            //    imageL.Images.Add(imageList1.Images[i]);
+            //}
+        }
+
+        public static JSONArray data_ergodic()  //遍历目录
+        {
+            JSONArray jsonArray = new JSONArray();
+            DirectoryInfo theFolder = new DirectoryInfo(@"data");
+            if (!theFolder.Exists) return jsonArray;
+            DirectoryInfo dir = theFolder as DirectoryInfo;
+            if (dir == null) return jsonArray;//不是目录
+            FileSystemInfo[] files = dir.GetFileSystemInfos();
+            for (int i = 0; i < files.Length; i++)
+            {
+                FileInfo file = files[i] as FileInfo;
+                if (file != null)//是文件
+                {
+                    if(file.Extension == ".jpg")
+                    {
+                        jsonArray.Add(file.Name);
+                    }
+                    //listBox.Items.Add("名字: " + file.Name + ", 创建时间: " + file.CreationTime + ", 扩展名: " + file.Extension + ", 上次访问时间: " + file.LastAccessTime);
+                }
+                //else scan(files[i]);
+            }
+            return jsonArray;
         }
 
         public static string find_list_data(string index)  //查找px
@@ -304,32 +445,42 @@ namespace rdp
             ListViewItem lvi = new ListViewItem(new string[] {
                         name,ip,user,password,bz,id,top,""});
             //id  名称  ip地址  用户名   密码  备注
-            lvi.ImageIndex = int.Parse(os);
+            if (Config.ini_list_run == "0")
+            {
+                lvi.ImageIndex = int.Parse(os);  //设置图标
+            }
+            else
+            {
+                string fiel_name = string.Format("{0}.jpg", id);
+                string fiel_path = Application.StartupPath + "\\data\\" + fiel_name;
+                if (File.Exists(fiel_path))
+                {
+                    lvi.ImageKey = fiel_name;
+                }else{
+                    //lvi.ImageIndex = 0;  //设置图标
+                    lvi.ImageKey = "host.png";
+                } 
+            }
+                
+
+            lvi.UseItemStyleForSubItems = false;  //设置底色
+
             if (Colorxxx == "1")    //颜色标记
             {
                 //this.listView1.Items[0].SubItems[0].ForeColor = Color.Green;//改变 字体
                 if (Colorvv == "2"){
-                    lvi.UseItemStyleForSubItems = false;
                     lvi.SubItems[0].BackColor = Color.SteelBlue;  //底色
                 }
-                if (Colorvv == "3")
-                {
-                    lvi.UseItemStyleForSubItems = false;
+                if (Colorvv == "3"){
                     lvi.SubItems[0].BackColor = Color.Tomato;
                 }
-                if (Colorvv == "4")
-                {
-                    lvi.UseItemStyleForSubItems = false;
+                if (Colorvv == "4"){
                     lvi.SubItems[0].BackColor = Color.SlateBlue;
                 }
-                if (Colorvv == "5")
-                {
-                    lvi.UseItemStyleForSubItems = false;
+                if (Colorvv == "5"){
                     lvi.SubItems[0].BackColor = Color.SandyBrown;
                 }
-                if (Colorvv == "6")
-                {
-                    lvi.UseItemStyleForSubItems = false;
+                if (Colorvv == "6"){
                     lvi.SubItems[0].BackColor = Color.MediumSpringGreen;
                 }
             }
@@ -429,10 +580,16 @@ namespace rdp
             //    this.tool_fz.Enabled = true;
             //    this.tool_Color.Enabled = true;
             //}
+
+            SendMessage(this.listView1.Handle, LVM_SETICONSPACING, 0, 0x10000 * img_row + img_loc);//70是行距，60是列距，一般比你的图片的宽高大一点点即可。大出来的部分便是间隙。
+
             this.listView1.EndUpdate();  //结束数据处理
+
             this.tsItemLabel.Text = string.Format(LangResx.Common.form1_tsItemLabel_together + " {0} " + LangResx.Common.form1_tsItemLabel_bar, dtxx.Rows.Count);
             listView1_Selected();  //选择状态
         }
+
+        
 
         public void Bontext_ColorDataSource()  //标记
         {
@@ -440,12 +597,22 @@ namespace rdp
             ToolStripItem itembb = new ToolStripMenuItem();
             itembb.Name = "0";   //id
             itembb.Text = LangResx.Common.bj_no_display;   // "不显示标记";   //名称
+            itembb.Image = Properties.Resources.close;    //增加ICO
+            if (Config.ini_Color == "0")
+            {
+                itembb.BackColor = Color.FromArgb(176, 226, 255);
+            }
             itembb.Click += new EventHandler(context_Color_ItemClick);
             this.context_Color.Items.Add(itembb);
 
             itembb = new ToolStripMenuItem();
             itembb.Name = "1";   //id
             itembb.Text = LangResx.Common.bj_display;  // "显示标记";   //名称
+            itembb.Image = Properties.Resources.open;   //增加ICO
+            if (Config.ini_Color == "1")
+            {
+                itembb.BackColor = Color.FromArgb(176, 226, 255);
+            }
             itembb.Click += new EventHandler(context_Color_ItemClick);
             this.context_Color.Items.Add(itembb);
             
@@ -495,12 +662,22 @@ namespace rdp
             ToolStripItem itemxx = new ToolStripMenuItem();
             itemxx.Name = "null";   //id
             itemxx.Text = LangResx.Common.fz_no_display;  // "不显示分组";   //名称
+            itemxx.Image = Properties.Resources.close;    //增加ICO
+            //Properties.Resources.delete;
+            if (Config.ini_fz == "0"){
+                itemxx.BackColor = Color.FromArgb(176, 226, 255);
+            }
             itemxx.Click += new EventHandler(context_fz_ItemClick);
             this.context_fz.Items.Add(itemxx);
 
             itemxx = new ToolStripMenuItem();
             itemxx.Name = "display";   //id
             itemxx.Text = LangResx.Common.fz_display; // "显示分组";   //名称
+            itemxx.Image = Properties.Resources.open;   //增加ICO
+            if (Config.ini_fz == "1")
+            {
+                itemxx.BackColor = Color.FromArgb(176, 226, 255);
+            }
             itemxx.Click += new EventHandler(context_fz_ItemClick);
             this.context_fz.Items.Add(itemxx);
 
@@ -534,6 +711,7 @@ namespace rdp
                 Config.Set_fz("0");
                 BindsListViewDataSource();  // 重新绑定数据源
                 BindsListViewDataSource();  // 重新绑定数据源
+                Bontext_fzDataSource();   //分组绑定数据源
                 return;
             }
             if (name == "display")   //显示分组
@@ -541,6 +719,7 @@ namespace rdp
                 Config.Set_fz("1");
                 BindsListViewDataSource();  // 重新绑定数据源
                 BindsListViewDataSource();  // 重新绑定数据源
+                Bontext_fzDataSource();   //分组绑定数据源
                 return;
             }
             
@@ -576,6 +755,7 @@ namespace rdp
                 Config.Set_Color("0");
                 BindsListViewDataSource();  // 重新绑定数据源
                 BindsListViewDataSource();  // 重新绑定数据源
+                Bontext_ColorDataSource();  //标记
                 return;
             }
             if (name == "1")   //标记
@@ -583,6 +763,7 @@ namespace rdp
                 Config.Set_Color("1");
                 BindsListViewDataSource();  // 重新绑定数据源
                 BindsListViewDataSource();  // 重新绑定数据源
+                Bontext_ColorDataSource();  //标记
                 return;
             }
             if (this.listView1.SelectedItems.Count == 0) return;
@@ -609,21 +790,21 @@ namespace rdp
 
         //===========================================
 
-        private void axMsRdpc_OnConnecting(object sender, EventArgs e)  // 远程桌面-连接  远程桌面组件axMsRdpc
-        {
-            var _axMsRdp = sender as AxMsRdpClient7NotSafeForScripting;
-            _axMsRdp.ConnectingText = _axMsRdp.GetStatusText(Convert.ToUInt32(_axMsRdp.Connected));
-            _axMsRdp.FindForm().WindowState = FormWindowState.Normal;
-        }
+        //private void axMsRdpc_OnConnecting(object sender, EventArgs e)  // 远程桌面-连接  远程桌面组件axMsRdpc
+        //{
+        //    var _axMsRdp = sender as AxMsRdpClient7NotSafeForScripting;
+        //    _axMsRdp.ConnectingText = _axMsRdp.GetStatusText(Convert.ToUInt32(_axMsRdp.Connected));
+        //    _axMsRdp.FindForm().WindowState = FormWindowState.Normal;
+        //}
 
-        private void axMsRdpc_OnDisconnected(object sender, IMsTscAxEvents_OnDisconnectedEvent e)  // 远程桌面-连接断开
-        {
-            var _axMsRdp = sender as AxMsRdpClient7NotSafeForScripting;
-            string disconnectedText = string.Format("{0} {1} {2}", LangResx.Common.link_desktop, _axMsRdp.Server, LangResx.Common.link_break);
-            _axMsRdp.DisconnectedText = disconnectedText;
-            _axMsRdp.FindForm().Close();
-            CommonSettings.WinMessage(disconnectedText, LangResx.Common.link);
-        }
+        //private void axMsRdpc_OnDisconnected(object sender, IMsTscAxEvents_OnDisconnectedEvent e)  // 远程桌面-连接断开
+        //{
+        //    var _axMsRdp = sender as AxMsRdpClient7NotSafeForScripting;
+        //    string disconnectedText = string.Format("{0} {1} {2}", LangResx.Common.link_desktop, _axMsRdp.Server, LangResx.Common.link_break);
+        //    _axMsRdp.DisconnectedText = disconnectedText;
+        //    _axMsRdp.FindForm().Close();
+        //    CommonSettings.WinMessage(disconnectedText, LangResx.Common.link);
+        //}
 
         private void axMsRdpcForm_Closed(object sender, FormClosedEventArgs e)  // 远程桌面窗体-关闭  远程桌面窗体axMsRdpcForm
         {
@@ -680,10 +861,7 @@ namespace rdp
                     this.listView1.SelectedItems[i].SubItems[0].Text,   //名称
                     this.listView1.SelectedItems[i].SubItems[4].Text};  //备注
 
-                //Link frm = new Link();
                 Link frm = new Link();
-                
-
 
                 frm.send_shell_id(id);  //记录ID防止重复加载
                 frm.form_Location(rectangle_.Location);   //设置窗口坐标位置
@@ -696,9 +874,7 @@ namespace rdp
             int num11 = list2.Count - 1;
             for (int i = 0; i <= num11; i++)
             {
-                //list2[i].MdiParent = this;//设置MdiParent属性，将当前窗体作为父窗体
                 list2[i].Show();
-                //list2[i].method_15();
             }
             Config.host_list.AddRange(list2);
 
@@ -788,6 +964,8 @@ namespace rdp
                     string id = this.listView1.SelectedItems[j].SubItems[5].Text;
                     string sSql = string.Format("delete from shell where id= '{0}'", id);
                     bool bResult = SqlLiteHelper.UpdateData(out sError, sSql, true);
+                    string fiel_path = Application.StartupPath + "\\data\\" + id+".jpg";
+                    File.Delete(fiel_path);  //删除文件
                 }
                 if(sError == "")
                 {
@@ -906,8 +1084,9 @@ namespace rdp
             if (frm.DialogResult == DialogResult.OK)
             {
                 listView1_ini();  //shell列表初始化
-                BindsListViewDataSource();
+                BindsListViewDataSource();   // 重新绑定数据源
                 Bontext_fzDataSource();   //分组绑定数据源
+                Bontext_ColorDataSource();  //标记
                 ping_run();  //运行
             }
         }
@@ -1060,7 +1239,6 @@ namespace rdp
 
         private void tool_Overlay_window_Click(object sender, EventArgs e)  //窗口 叠加
         {
-            //叠加
             Rectangle rectangle = Link.get_Bounds(new Rectangle(base.Location, base.Size));
             Rectangle rectangle_ = Link.get_WorkingArea(new Rectangle(base.Location, base.Size));
 
@@ -1126,7 +1304,59 @@ namespace rdp
             }
         }
 
-    
+        private void list_display_Click(object sender, EventArgs e)  //关闭视图
+        {
+            Config.Set_list_run("0");
+            listView1_ini();  //shell列表初始化
+            BindsListViewDataSource();   // 重新绑定数据源
+            Bontext_fzDataSource();   //分组绑定数据源
+            Bontext_ColorDataSource();  //标记
+            ping_run();  //运行
+        }
+
+        private void list_close_Click(object sender, EventArgs e)  //显示视图
+        {
+            Config.Set_list_run("1");
+            listView1_ini();  //shell列表初始化
+            BindsListViewDataSource();   // 重新绑定数据源
+            Bontext_fzDataSource();   //分组绑定数据源
+            Bontext_ColorDataSource();  //标记
+            ping_run();  //运行
+        }
+
+        private void list_1_Click(object sender, EventArgs e)  //小图标
+        {
+            Config.Set_list_run("1");
+            Config.Set_list_index("1");
+            listView1_ini();  //shell列表初始化
+            BindsListViewDataSource();   // 重新绑定数据源
+            Bontext_fzDataSource();   //分组绑定数据源
+            Bontext_ColorDataSource();  //标记
+            ping_run();  //运行
+        }
+
+        private void list_2_Click(object sender, EventArgs e)  //中图标
+        {
+            Config.Set_list_run("1");
+            Config.Set_list_index("2");
+            listView1_ini();  //shell列表初始化
+            BindsListViewDataSource();   // 重新绑定数据源
+            Bontext_fzDataSource();   //分组绑定数据源
+            Bontext_ColorDataSource();  //标记
+            ping_run();  //运行
+        }
+
+        private void list_3_Click(object sender, EventArgs e)  //大图标
+        {
+            Config.Set_list_run("1");
+            Config.Set_list_index("3");
+            listView1_ini();  //shell列表初始化
+            BindsListViewDataSource();   // 重新绑定数据源
+            Bontext_fzDataSource();   //分组绑定数据源
+            ping_run();  //运行
+        }
+
+
 
 
 

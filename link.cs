@@ -5,15 +5,16 @@ using System.Windows.Forms;
 using AxMSTSCLib;
 using MSTSCLib;
 using System.Text.RegularExpressions;
-
-
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using System.Threading;
 //using System.ComponentModel;
 //using System.Data;
 //using System.Linq;
 //using System.Text;
 //using System.Threading.Tasks;
 //using System.Collections.Generic;
-//using System.Windows.Forms;
+//using System.Windows;
 
 namespace rdp
 {
@@ -36,10 +37,11 @@ namespace rdp
         public static Point ini_point = Point.Empty;
         public static Size ini_size = Size.Empty;
 
-        string shell_id = "";
-        // public bool bool_1=true;
+        public string shell_id = "";
+        // public  static bool bool_1=true;
 
-
+        public IntPtr form_hWnd;  //当前窗体句柄
+        public bool form_rdp_link=false;
 
         public Link()
         {
@@ -83,101 +85,53 @@ namespace rdp
         {
             return ini_size;
         }
-      
+
+ 
+        //最大化: this.WindowState = FormWindowState.Maximized;
+        //原始大小: this.WindowState = FormWindowState.Normal;
+        //最小化: this.WindowState = FormWindowState.Minimized;
 
         public static bool list_form_Tile(Rectangle rectangle_2, Link[] gform0_0)
         {
-            Console.WriteLine("rectangle_2.Width-----------------------" + rectangle_2.Width);
-            Console.WriteLine("rectangle_2.Height-----------------------" + rectangle_2.Height);
+            if (rectangle_2.IsEmpty || gform0_0 == null || gform0_0.Length < 1)
+            {
+                return false;
+            }
 
-            double num = 0.0;
-            double num2 = 0.0;
+            int x_spacing = 0;  //X 间距
+            int y_spacing = 0;  //y 间距
+            int Width_xx = Config.ini_Width;//   800;  //应用视图的宽
+            int Height_xx = Config.ini_Height;//    600;  //应用视图的高
+            int max_Width = Screen.AllScreens.Length * rectangle_2.Width; //总宽度
+            int Height = rectangle_2.Height;
+            bool flag = true;
+
+            int row = Convert.ToInt32(Math.Floor((double)(max_Width / (Width_xx + x_spacing))));// 3;  //列
+            int loc = Convert.ToInt32(Math.Floor((double)(Height / (Height_xx + y_spacing))));  //2;  //行
+            int zs_bab = row * loc;  //可承载数量
             int num3 = gform0_0.Length - 1;
             for (int i = 0; i <= num3; i++)
             {
-                
-                num += (double)gform0_0[i].get_form_size().Width;
-                num2 += (double)gform0_0[i].get_form_size().Height;
-                //num += (double)gform0_0[i].method_18().Width;
-                //num2 += (double)gform0_0[i].method_18().Height;
-            }
-
-            Size size = new Size((int)Math.Round(num / (double)gform0_0.Length), (int)Math.Round(num2 / (double)gform0_0.Length));
-
-            Console.WriteLine("num / (double)gform0_0.Length  " + num / (double)gform0_0.Length);
-            Console.WriteLine("num2 / (double)gform0_0.Length  " + num2 / (double)gform0_0.Length);
-            if (size.Width >= 640 && size.Height >= 480)
-            {
-                double num4 = 60.0 / (double)size.Width;
-                double num5 = 1.0;
-                double num6 = 1.5 / (double)size.Height;
-                double num7 = 1.0;
-                Size size_ = size + ini_size;
-                int num8;
-                int num9;
-                bool flag;
-                while (true)  
+                if(i>= zs_bab)
                 {
-                    num8 = rectangle_2.Width / size_.Width;
-                    num9 = rectangle_2.Height / size_.Height;
-
-                    flag = ((num8 * num9 >= gform0_0.Length) ? true : false);
-                    //Console.WriteLine("num7  "+ num7);
-                    //Console.WriteLine("num4  " + num4);
-                    //Console.WriteLine("flag  " + flag);
-                    //Console.WriteLine("num5  " + num5);
-                    //Console.WriteLine("num6  " + num6);
-
-                    
-                    if (num7 == num4 || (flag && num5 - num7 < num6))
-                    {break;}
-                    if (!flag && num7 - num4 < num6)
-                    {
-                        num7 = num4;
-                    }else{
-                        if (flag){num4 = num7;}else{num5 = num7;}
-                        num7 = (num4 + num5) / 2.0;
-                    }
-                    size_ = new Size((int)Math.Round((double)size.Width * num7), (int)Math.Round((double)size.Height * num7)) + ini_size;
-                }
-                if (!flag){return false;}
-                Console.WriteLine("cccccccccccccccccccccc  ");
-
-                Console.WriteLine("-------num8  " + num8);
-                Console.WriteLine("-------num9  " + num9);
-                for (int j = 0; j < num9; j++)
-                {
-                    int num10 = num8 - 1;
-                    for (int k = 0; k <= num10; k++)
-                    {
-                        int i = j * num8 + k;
-                        Console.WriteLine("j   " + j);
-                        Console.WriteLine("num8   " + num8);
-                        Console.WriteLine("k   " + k);
-
-
-
-
-                        Console.WriteLine("i   " + i);
-
-                        if (i >= gform0_0.Length)
-                        {
-                            goto end_IL_0232;
-                        }
-
-                        Console.WriteLine("--x   " + rectangle_2.X + k * size_.Width);
-                        Console.WriteLine("--y   " + rectangle_2.Y + j * size_.Height);
-                        gform0_0[i].form_Location(new Point(rectangle_2.X + k * size_.Width, rectangle_2.Y + j * size_.Height));
-                        gform0_0[i].form_Size(size_);
-                    }
+                    flag = false;
+                    gform0_0[i].WindowState = FormWindowState.Minimized;  //设置窗口最小化
+                    //break;
                     continue;
-                end_IL_0232:
-                    break;
                 }
+                int rowxx = i / row;//行号
+                //1/3=0,2/3=0,3/3=1;
+                int locxx = i % row;//列号
+                //每一个应用视图的X ＝ 左边距 ＋ （应用视图的宽 ＋ 应用左右间距）*列号
+                //每一个应用视图的Y ＝ 上边距 ＋ （应用视图的高 ＋ 应用上下间距）*行号
+                int x = 0 + (Width_xx + x_spacing) * locxx;
+                int y = 0 + (Height_xx + y_spacing) * rowxx;
+
+                gform0_0[i].WindowState = FormWindowState.Normal;  //原始大小
+                gform0_0[i].form_Location(new Point(x, y));  //位置
+                gform0_0[i].form_Size(gform0_0[i].get_form_size());   //大小
             }
-            return false;
-
-
+            return flag;
         }
 
         public static void list_form_window(Rectangle rectangle_2, Link[] gform0_0)
@@ -369,8 +323,110 @@ namespace rdp
             this.Timer1 = null;
         }
 
+        //===============保存截图
+        [DllImport("user32.dll", CharSet = CharSet.Auto, ExactSpelling = true)]
+        public static extern IntPtr GetForegroundWindow();
+
+        [DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        static extern bool GetWindowRect(IntPtr hWnd, ref RECT lpRect);
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct RECT
+        {
+            public int Left;                             //最左坐标
+            public int Top;                             //最上坐标
+            public int Right;                           //最右坐标
+            public int Bottom;                        //最下坐标
+        }
+
+        private void Save_jpg()  //保存截图
+        {
+            IntPtr awin = GetForegroundWindow();    //获取当前窗口句柄
+            RECT rect = new RECT();
+            GetWindowRect(awin, ref rect);
+            int width = rect.Right - rect.Left - 20;                        //窗口的宽度  //最上坐标
+            int height = rect.Bottom - rect.Top - 41;                   //窗口的高度   //最上坐标
+            int x = rect.Left + 10;        //最右坐标
+            int y = rect.Top + 30;         //最下坐标
+
+            //创建图象，保存将来截取的图象
+            Bitmap image = new Bitmap(width, height);   //Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height
+            Graphics imgGraphics = Graphics.FromImage(image);
+
+            //设置截屏区域
+            imgGraphics.CopyFromScreen(x, y, 0, 0, new Size(width, height));
+            //保存
+            //SaveImage(image);
+            if (shell_id != "")
+            {
+                string fileName = string.Format("data\\{0}.jpg", shell_id);  // "id.jpg";
+                image.Save(fileName, System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+        }
+
+
+
+      
+
+        private void Save_jpg_run()
+        {
+            while (true)
+            {
+                try
+                {
+                    Task task_B = Task.Run(task_YS_B);  //  //延时60秒
+                    task_B.Wait();
+                    //Console.WriteLine(shell_id + "=form_rdp_link========   " + form_rdp_link);
+                    if (form_rdp_link == false)
+                    {
+                        continue;
+                    }
+
+                    if (form_hWnd == IntPtr.Zero)
+                    {
+                        form_hWnd = FindWindow(null, this.Text);    //标题查找句柄
+                    }
+
+                    Invoke(new Action(() =>
+                    {
+                    IntPtr awin = GetForegroundWindow();    //获取当前窗口句柄
+                    if(form_hWnd== awin)
+                    {
+                        Save_jpg();  //保存截图
+                    }
+                    }));
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Save_jpg_run  err  " + e.Message);
+                }
+            }
+
+
+        }
+        public static async Task task_YS_B()
+        {
+            await Task.Delay(30000);
+        }
+
+        //=================保存截图
         private void Link_Load(object sender, EventArgs e)
         {
+            //===========
+            
+            Thread td_ping = new Thread(new ThreadStart(Save_jpg_run));
+            td_ping.IsBackground = true;
+            td_ping.Start();  //开启
+            //this.MouseClick += new MouseEventHandler(Save_jpg_Click);
+            //foreach (var item in this.Controls)
+            //{
+            //    ((Control)item).MouseClick += new MouseEventHandler(Save_jpg_Click);
+            //}
+            //===========
             //=================================
             try
             {
@@ -411,8 +467,8 @@ namespace rdp
                 axMsRdp_Client_AA.AdvancedSettings5.AuthenticationLevel = 0u;
                 axMsRdp_Client_AA.FullScreen = false;
                 axMsRdp_Client_AA.SecuredSettings2.KeyboardHookMode = 0;
-                axMsRdp_Client_AA.OnConnected += AxMsRdp_Client_OnConnected;
-                axMsRdp_Client_AA.OnDisconnected += AxMsRdp_Client_OnDisconnected;
+                axMsRdp_Client_AA.OnConnected += AxMsRdp_Client_OnConnected;   //连接
+                axMsRdp_Client_AA.OnDisconnected += AxMsRdp_Client_OnDisconnected;  //断开连接时
                 ((System.ComponentModel.ISupportInitialize)(axMsRdp_Client_AA)).EndInit();
             }
             else
@@ -430,8 +486,29 @@ namespace rdp
                 axMsRdp_Client_BB.AdvancedSettings5.AuthenticationLevel = 0u;
                 axMsRdp_Client_BB.FullScreen = false;
                 axMsRdp_Client_BB.SecuredSettings2.KeyboardHookMode = 0;
-                axMsRdp_Client_BB.OnConnected += AxMsRdp_Client_OnConnected;
-                axMsRdp_Client_BB.OnDisconnected += AxMsRdp_Client_OnDisconnected;
+                axMsRdp_Client_BB.OnConnected += AxMsRdp_Client_OnConnected;   //连接
+                axMsRdp_Client_BB.OnDisconnected += AxMsRdp_Client_OnDisconnected;  //断开连接时
+
+
+
+                //this.rdp.OnConnecting += new System.EventHandler(this.rdp_OnConnecting);  //关于连接
+                //this.rdp.OnConnected += new System.EventHandler(this.rdp_OnConnected);  //连接的
+                //this.rdp.OnLoginComplete += new System.EventHandler(this.rdp_OnLoginComplete);  //登录完成后
+                //this.rdp.OnDisconnected += new AxMSTSCLib.IMsTscAxEvents_OnDisconnectedEventHandler(this.rdp_OnDisconnected);  //断开连接时
+                //this.rdp.OnLeaveFullScreenMode += new System.EventHandler(this.rdp_OnLeaveFullScreenMode);  //离开全屏模式
+                //this.rdp.OnFatalError += new AxMSTSCLib.IMsTscAxEvents_OnFatalErrorEventHandler(this.rdp_OnFatalError);   //论致命错误
+                //this.rdp.OnWarning += new AxMSTSCLib.IMsTscAxEvents_OnWarningEventHandler(this.rdp_OnWarning);    //警告
+                //this.rdp.OnRemoteDesktopSizeChange += new AxMSTSCLib.IMsTscAxEvents_OnRemoteDesktopSizeChangeEventHandler(this.rdp_OnRemoteDesktopSizeChange);  //在远程桌面上更改大小
+                //this.rdp.OnReceivedTSPublicKey += new AxMSTSCLib.IMsTscAxEvents_OnReceivedTSPublicKeyEventHandler(this.rdp_OnReceivedTSPublicKey);   //关于接收到的TS公钥
+                //this.rdp.OnLogonError += new AxMSTSCLib.IMsTscAxEvents_OnLogonErrorEventHandler(this.rdp_OnLogonError);   //登录错误
+                //this.rdp.OnServiceMessageReceived += new AxMSTSCLib.IMsTscAxEvents_OnServiceMessageReceivedEventHandler(this.rdp_OnServiceMessageReceived);   //在收到服务信息时
+                //this.rdp.OnNetworkStatusChanged += new AxMSTSCLib.IMsTscAxEvents_OnNetworkStatusChangedEventHandler(this.rdp_OnNetworkStatusChanged);   //关于网络状态的更改
+                //this.rdp.OnAutoReconnected += new System.EventHandler(this.rdp_OnAutoReconnected);   //关于自动重新连接
+
+
+
+
+                //axMsRdp_Client_BB.OnReceivedTSPublicKey +=  Save_jpg_Click;
 
                 axMsRdp_Client_BB.Enabled = true;
                 ((System.ComponentModel.ISupportInitialize)(axMsRdp_Client_BB)).EndInit();
@@ -440,13 +517,31 @@ namespace rdp
             base.ShowInTaskbar = true;
             //bool_1 = true;
             CreateAxMsRdpClient();/// 创建远程桌面连接
-            
+
+
+
         }
+
+        //private void axMsRdpc_OnConnecting(object sender, EventArgs e)  // 远程桌面-连接  远程桌面组件axMsRdpc
+        //{
+        //    var _axMsRdp = sender as AxMsRdpClient7NotSafeForScripting;
+        //    _axMsRdp.ConnectingText = _axMsRdp.GetStatusText(Convert.ToUInt32(_axMsRdp.Connected));
+        //    _axMsRdp.FindForm().WindowState = FormWindowState.Normal;
+        //}
+
+        //private void axMsRdpc_OnDisconnected(object sender, IMsTscAxEvents_OnDisconnectedEvent e)  // 远程桌面-连接断开
+        //{
+        //    var _axMsRdp = sender as AxMsRdpClient7NotSafeForScripting;
+        //    string disconnectedText = string.Format("{0} {1} {2}", LangResx.Common.link_desktop, _axMsRdp.Server, LangResx.Common.link_break);
+        //    _axMsRdp.DisconnectedText = disconnectedText;
+        //    _axMsRdp.FindForm().Close();
+        //    CommonSettings.WinMessage(disconnectedText, LangResx.Common.link);
+        //}
 
         private void AxMsRdp_Client_OnConnected(object sender, EventArgs e)
         {
+            form_rdp_link = true;
         }
-
 
         private void host_close()  //断开链接
         {
@@ -478,6 +573,7 @@ namespace rdp
             //          this.timer1.Enabled = true;  //隐藏
             //        return;
             //    }
+            form_rdp_link = false;
             host_close();  //断开链接
             if (this.LinkLabel1 != null)
             {
@@ -530,7 +626,7 @@ namespace rdp
             }
             this.UserName = args[1];    // 远程登录账号
             this.Password = args[2];   // 远程登录密码
-            this.Text= args[3] + " (" + this.Server_Ip + ")"+ args[4];  //设置标题
+            this.Text= this.Server_Ip + " (" + args[3]   + args[4] + ")";  //设置标题
             //base.FormBorderStyle = FormBorderStyle.None;
             base.Location = rectangle.Location;
             this.Visible = false;
@@ -755,6 +851,8 @@ namespace rdp
                 try
                 {
                     axMsRdp_Client_BB.Connect();
+                   
+                    
                 }
                 catch (Exception e)
                 {

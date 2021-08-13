@@ -280,6 +280,12 @@
     <Content Include="App.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="img\open.png" />
+    <None Include="img\close.png" />
+    <None Include="img\list3.png" />
+    <None Include="img\list2.png" />
+    <None Include="img\list1.png" />
+    <None Include="img\list.png" />
     <None Include="img\b2.png" />
     <None Include="img\e3.png" />
     <None Include="img\e2.png" />

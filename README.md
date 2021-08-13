@@ -33,8 +33,9 @@
 
 ##软件运行效果截图
 * ![mahua](a1.png)
-* ![mahua](a1_1.png)
 * ![mahua](a2.png)
 * ![mahua](a3.png)
 * ![mahua](a4.png)
 * ![mahua](a5.png)
+* ![mahua](a6.png)
+* ![mahua](a7.png)

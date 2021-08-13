@@ -11,7 +11,7 @@ namespace rdp
 {
     public abstract class SqlLiteHelper
     {    
-        public static string ConnSqlLiteDbPath = "shell.db";   
+        public static string ConnSqlLiteDbPath = "data\\shell.db";   
         public static string Info()
         {
             //Console.WriteLine("SQL Info   ");

@@ -39,8 +39,8 @@ namespace rdp
             // 
             // LinkLabel1
             // 
-            this.LinkLabel1.BackColor = System.Drawing.Color.White;
             resources.ApplyResources(this.LinkLabel1, "LinkLabel1");
+            this.LinkLabel1.BackColor = System.Drawing.Color.White;
             this.LinkLabel1.Name = "LinkLabel1";
             this.LinkLabel1.TabStop = true;
             this.LinkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLabel1_LinkClicked);

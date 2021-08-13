@@ -27,18 +27,19 @@ namespace rdp
         public static int ini_BitmapPersistence = 1;   //启用缓存
         public static string ini_Drive = "";   //磁盘映射列表
 
-        public static string ini_fz = "0";   //分组
-        public static string ini_Color = "0";   //颜色标记
+        public static string ini_fz = "1";   //分组
+        public static string ini_Color = "1";   //颜色标记
         public static string ini_password = "";  //密码
         public static string ini_password_bool = "1";  //密码开启
 
         public static string ini_ping_run = "0";  // ping 开启
         public static string ini_ping_color = "1";  //  ping 颜色标记
 
-        
+        public static string ini_list_run = "1";  //视图模式是否开启
+        public static string ini_list_index = "2";  //视图序号
 
         //=============================================
-        public static string path= Application.StartupPath + "\\Config.ini";
+        public static string path= Application.StartupPath + "\\data\\Config.ini";
         [DllImport("kernel32")]
         private static extern long WritePrivateProfileString(string section, string key, string val, string filePath);
         [DllImport("kernel32")]
@@ -144,6 +145,21 @@ namespace rdp
             {
                 Set_ping_color(Ini_GetValue_string("Config", "ping_color"), false);    //ping 颜色标记
             }
+
+            if (Ini_GetValue_string("Config", "list_run") != "")
+            {
+                Set_list_run(Ini_GetValue_string("Config", "list_run"), false);    //视图模式是否开启
+            }
+            if (Ini_GetValue_string("Config", "list_index") != "")
+            {
+                Set_list_index(Ini_GetValue_string("Config", "list_index"), false);    //视图序号
+            }
+
+
+
+
+
+
 
 
             try {
@@ -408,6 +424,39 @@ namespace rdp
             catch (DivideByZeroException e)
             {
                 Msg.add("Set_ping_color", "err:" + e.Message);
+            }
+        }
+
+
+        public static void Set_list_run(string index, bool Write = true)   //视图模式是否开启
+        {
+            try
+            {
+                if (Write)
+                {
+                    WritePrivateProfileString("Config", "list_run", index, path);
+                }
+                ini_list_run = index;
+            }
+            catch (DivideByZeroException e)
+            {
+                Msg.add("Set_list_run", "err:" + e.Message);
+            }
+        }
+
+        public static void Set_list_index(string index, bool Write = true)   //视图序号
+        {
+            try
+            {
+                if (Write)
+                {
+                    WritePrivateProfileString("Config", "list_index", index, path);
+                }
+                ini_list_index = index;
+            }
+            catch (DivideByZeroException e)
+            {
+                Msg.add("Set_list_index", "err:" + e.Message);
             }
         }
 
