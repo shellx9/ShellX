@@ -19,6 +19,12 @@ namespace rdp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //=============
+            if (!Directory.Exists("data"))
+            {
+                Directory.CreateDirectory("data");//创建新路径
+            }
+            //=============
             LangUtil.ApplyDefaultLang();  // 初始化区域信息（即配置语言）
             //Application.Run(new Form1());
 

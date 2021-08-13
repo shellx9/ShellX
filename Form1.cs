@@ -86,12 +86,7 @@ namespace rdp
 
         private void Form1_Load(object sender, EventArgs e)  // 主窗体-窗体加载
         {
-            //=============
-            if (!Directory.Exists("data"))
-            {
-                Directory.CreateDirectory("data");//创建新路径
-            }
-            //=============
+            
             //this.ShowInTaskbar = true;  //
             listView1_ini();  //shell列表初始化
             BindsListViewDataSource();   // 主机绑定初始化
